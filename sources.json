@@ -21,6 +21,15 @@
             "url": "https://www.theguardian.com/international/rss"
           }
         ]
+      },
+      {
+        "title": "Finance",
+        "items": [
+          {
+            "title": "Of Dollars and Data",
+            "url": "https://ofdollarsanddata.com/feed/"
+          }
+        ]
       }
     ]
   }
