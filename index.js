@@ -20,10 +20,22 @@ function createFile(fileName, data) {
 
 
 function itemTemplate(item) {
+    // console.log("item link: " + item.link);
+    // console.log("item title: " + item.title);
+    // console.log("item pubDate: " + item.pubDate);
+    // console.log("pubDate Display: " + pubDateDisplay(item.pubDate));
+
     return `<li class="mb-1">
         <a rel="noopener" target="_blank" href="${item.link}" title="${item.title}">${item.title}</a>
-        <time datetime="${item.pubDate}" class="ps-2 small">${item.pubDate.replace(/T/, ' '). substring(0,16)}</time>
+        <time datetime="${item.pubDate}" class="ps-2 small">${pubDateDisplay(item.pubDate)}</time>
     </li>`
+}
+
+function pubDateDisplay(input_pubDate) {
+    new_str = input_pubDate.replace(/(\d)(T)(\d)/, '$1 $3');
+    sec_str = new_str.replace(/\.000Z/, '');
+    third_str = sec_str.replace(/\+0000/, '');
+    return third_str;
 }
 
 my_sources.sections.forEach((section) => {
