@@ -5,10 +5,20 @@ const templates = require('./templates.js')
 let my_parser = new Parser();
 
 const promises = [];
+
+const promises_tech = [];
+const promises_news = [];
+const promises_finance = [];
+
 const my_sources = JSON.parse(fs.readFileSync('sources.json'));
 
+
+const my_sources_tech = JSON.parse(fs.readFileSync('sources_tech.json'));
+const my_sources_news = JSON.parse(fs.readFileSync('sources_news.json'));
+const my_sources_finance = JSON.parse(fs.readFileSync('sources_finance.json'));
+
 // create the required folders
-fs.mkdir('./dist', () => {});
+fs.mkdir('./dist', () => { });
 
 function createFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
@@ -38,11 +48,26 @@ function pubDateDisplay(input_pubDate) {
     return third_str;
 }
 
-my_sources.sections.forEach((section) => {
-    section.items.forEach((item) => {
-        promises.push(my_parser.parseURL(item.url))
-    });
+// my_sources.sections.forEach( function(section, out_index) { 
+//     promises[out_index] = [];
+//     section.items.forEach( function(item, in_index) { 
+//         promises[out_index].push(my_parser.parseURL(item.url))
+//     });
+// });
+
+my_sources_tech.items.forEach(function (item, in_index) {
+    promises_tech.push(my_parser.parseURL(item.url));
 });
+
+my_sources_news.items.forEach(function (item, in_index) {
+    promises_news.push(my_parser.parseURL(item.url));
+});
+
+my_sources_finance.items.forEach(function (item, in_index) {
+    promises_finance.push(my_parser.parseURL(item.url));
+});
+
+
 
 // commented out previous
 // Promise.all(promises).then((feeds) => {
@@ -62,25 +87,25 @@ my_sources.sections.forEach((section) => {
 //     });
 
 
-Promise.all(promises).then((feeds) => {
+Promise.all(promises_tech).then((feeds) => {
     let output = '';
 
     feeds.forEach((feed, my_index) => {
         output += '<div class="accordion-item">';
-            output += `<h2 class="accordion-header" id="heading${my_index}">`;
-                output += `<button class="accordion-button" type="button" data-bs-toggle="collapse"
+        output += `<h2 class="accordion-header" id="heading${my_index}">`;
+        output += `<button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapse${my_index}" aria-expanded="true" aria-controls="collapse${my_index}">`;
-                    output += `${feed.title}`;
-                output += '</button>';
-            output += '</h2>';
+        output += `${feed.title}`;
+        output += '</button>';
+        output += '</h2>';
 
-            output += `<div id="collapse${my_index}" class="accordion-collapse collapse " aria-labelledby="heading${my_index}"
+        output += `<div id="collapse${my_index}" class="accordion-collapse collapse " aria-labelledby="heading${my_index}"
             data-bs-parent="#accordionDigest">`;
 
-                output += '<ul class="mb-4">';
-                output += feed.items.slice(0,10).map(itemTemplate).join('');
-                output += '</ul>';
-            output += '</div>';
+        output += '<ul class="mb-4">';
+        output += feed.items.slice(0, 10).map(itemTemplate).join('');
+        output += '</ul>';
+        output += '</div>';
 
         output += '</div>';
 
@@ -88,7 +113,74 @@ Promise.all(promises).then((feeds) => {
 
 
 
-    output = templates.document(output);
+    template_doc = templates.techdocument(output);
 
-    createFile('./dist/index.html', output);
+    createFile('./dist/tech.html', template_doc);
+
+});
+
+
+Promise.all(promises_news).then((feeds) => {
+    let output = '';
+
+    feeds.forEach((feed, my_index) => {
+        output += '<div class="accordion-item">';
+        output += `<h2 class="accordion-header" id="heading${my_index}">`;
+        output += `<button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse${my_index}" aria-expanded="true" aria-controls="collapse${my_index}">`;
+        output += `${feed.title}`;
+        output += '</button>';
+        output += '</h2>';
+
+        output += `<div id="collapse${my_index}" class="accordion-collapse collapse " aria-labelledby="heading${my_index}"
+            data-bs-parent="#accordionDigest">`;
+
+        output += '<ul class="mb-4">';
+        output += feed.items.slice(0, 10).map(itemTemplate).join('');
+        output += '</ul>';
+        output += '</div>';
+
+        output += '</div>';
+
+    });
+
+
+
+    template_doc = templates.newsdocument(output);
+
+    createFile('./dist/news.html', template_doc);
+
+});
+
+
+Promise.all(promises_finance).then((feeds) => {
+    let output = '';
+
+    feeds.forEach((feed, my_index) => {
+        output += '<div class="accordion-item">';
+        output += `<h2 class="accordion-header" id="heading${my_index}">`;
+        output += `<button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse${my_index}" aria-expanded="true" aria-controls="collapse${my_index}">`;
+        output += `${feed.title}`;
+        output += '</button>';
+        output += '</h2>';
+
+        output += `<div id="collapse${my_index}" class="accordion-collapse collapse " aria-labelledby="heading${my_index}"
+            data-bs-parent="#accordionDigest">`;
+
+        output += '<ul class="mb-4">';
+        output += feed.items.slice(0, 10).map(itemTemplate).join('');
+        output += '</ul>';
+        output += '</div>';
+
+        output += '</div>';
+
+    });
+
+
+
+    template_doc = templates.financedocument(output);
+
+    createFile('./dist/finance.html', template_doc);
+
 });
