@@ -14,7 +14,7 @@
         ]
       },
       {
-        "title": "International news",
+        "title": "News",
         "items": [
           {
             "title": "Positive News",
@@ -32,6 +32,10 @@
           {
             "title": "Of Dollars and Data",
             "url": "https://ofdollarsanddata.com/feed/"
+          },
+          {
+            "title": "Morgan Housel - Collab Fund",
+            "url": "http://feeds.feedburner.com/collabfund"
           }
         ]
       }

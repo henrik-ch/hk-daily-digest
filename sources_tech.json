@@ -1,0 +1,13 @@
+{
+    "title": "Tech",
+    "items": [
+        {
+            "title": "the Verge",
+            "url": "https://www.theverge.com/rss/index.xml"
+        },
+        {
+            "title": "Hacker News",
+            "url": "https://hnrss.org/best"
+        }
+    ]
+}
