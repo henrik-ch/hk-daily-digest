@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* @charset "UTF-8";
 
 :root {
     --bs-blue: #0d6efd;
@@ -197,7 +197,7 @@ a:hover {
     flex: 1 0 0%
 }
 
-.navbar {
+/* .navbar {
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -212,7 +212,7 @@ a:hover {
     flex-wrap: inherit;
     align-items: center;
     justify-content: space-between
-}
+} */
 
 .mb-0 {
     margin-bottom: 0 !important
@@ -258,4 +258,4 @@ a:hover {
 
 a:visited {
     color: var(--bs-purple);
-}
+} */
