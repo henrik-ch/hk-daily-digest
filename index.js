@@ -86,16 +86,21 @@ my_sources_finance.items.forEach(function (item, in_index) {
 
 //     });
 
+function checkFulfilled(my_promise) {
+    return my_promise.status === 'fulfilled';
+}
 
-Promise.all(promises_tech).then((feeds) => {
+Promise.allSettled(promises_tech).then((feeds) => {
     let output = '';
 
-    feeds.forEach((feed, my_index) => {
+    const fulfilled_promises = feeds.filter(checkFulfilled);
+
+    fulfilled_promises.forEach((feed, my_index) => {
         output += '<div class="accordion-item">';
         output += `<h2 class="accordion-header" id="heading${my_index}">`;
         output += `<button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapse${my_index}" aria-expanded="true" aria-controls="collapse${my_index}">`;
-        output += `${feed.title}`;
+        output += `${feed.value.title}`;
         output += '</button>';
         output += '</h2>';
 
@@ -103,7 +108,7 @@ Promise.all(promises_tech).then((feeds) => {
             data-bs-parent="#accordionDigest">`;
 
         output += '<ul class="mb-4">';
-        output += feed.items.slice(0, 10).map(itemTemplate).join('');
+        output += feed.value.items.slice(0, 10).map(itemTemplate).join('');
         output += '</ul>';
         output += '</div>';
 
@@ -120,15 +125,17 @@ Promise.all(promises_tech).then((feeds) => {
 });
 
 
-Promise.all(promises_news).then((feeds) => {
+Promise.allSettled(promises_news).then((feeds) => {
     let output = '';
 
-    feeds.forEach((feed, my_index) => {
+    const fulfilled_promises = feeds.filter(checkFulfilled);
+
+    fulfilled_promises.forEach((feed, my_index) => {
         output += '<div class="accordion-item">';
         output += `<h2 class="accordion-header" id="heading${my_index}">`;
         output += `<button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapse${my_index}" aria-expanded="true" aria-controls="collapse${my_index}">`;
-        output += `${feed.title}`;
+        output += `${feed.value.title}`;
         output += '</button>';
         output += '</h2>';
 
@@ -136,13 +143,16 @@ Promise.all(promises_news).then((feeds) => {
             data-bs-parent="#accordionDigest">`;
 
         output += '<ul class="mb-4">';
-        output += feed.items.slice(0, 10).map(itemTemplate).join('');
+        output += feed.value.items.slice(0, 10).map(itemTemplate).join('');
         output += '</ul>';
         output += '</div>';
 
         output += '</div>';
 
     });
+
+
+
 
 
 
@@ -153,15 +163,17 @@ Promise.all(promises_news).then((feeds) => {
 });
 
 
-Promise.all(promises_finance).then((feeds) => {
+Promise.allSettled(promises_finance).then((feeds) => {
     let output = '';
 
-    feeds.forEach((feed, my_index) => {
+    const fulfilled_promises = feeds.filter(checkFulfilled);
+
+    fulfilled_promises.forEach((feed, my_index) => {
         output += '<div class="accordion-item">';
         output += `<h2 class="accordion-header" id="heading${my_index}">`;
         output += `<button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapse${my_index}" aria-expanded="true" aria-controls="collapse${my_index}">`;
-        output += `${feed.title}`;
+        output += `${feed.value.title}`;
         output += '</button>';
         output += '</h2>';
 
@@ -169,13 +181,15 @@ Promise.all(promises_finance).then((feeds) => {
             data-bs-parent="#accordionDigest">`;
 
         output += '<ul class="mb-4">';
-        output += feed.items.slice(0, 10).map(itemTemplate).join('');
+        output += feed.value.items.slice(0, 10).map(itemTemplate).join('');
         output += '</ul>';
         output += '</div>';
 
         output += '</div>';
 
     });
+
+
 
 
 
