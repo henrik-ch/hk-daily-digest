@@ -12,6 +12,11 @@
         {
             "title": "Wired Top Stories",
             "url": "https://www.wired.com/feed/rss"
+        },
+
+        {
+            "title": "Electrek EV & Tesla News",
+            "url": "https://electrek.co/feed/"
         }
     ]
 }
