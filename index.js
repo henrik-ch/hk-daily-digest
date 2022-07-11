@@ -68,6 +68,42 @@ my_sources_finance.items.forEach(function (item, in_index) {
 });
 
 
+const navbarListLookup = {
+    "tech": `<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="./tech.html">Tech</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./news.html">News</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="./finance.html">Finance</a>
+  </li>`,
+    "news": `<li class="nav-item">
+    <a class="nav-link" aria-current="page" href="./tech.html">Tech</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="./news.html">News</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./finance.html">Finance</a>
+  </li>`,
+    "finance": `<li class="nav-item">
+    <a class="nav-link" aria-current="page" href="./tech.html">Tech</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./news.html">News</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="./finance.html">Finance</a>
+  </li>`
+}
+
+
+function generateNavbarList(input_pagetype) {
+    retStr = navbarListLookup[input_pagetype];
+    return retStr;
+}
+
 function checkFulfilled(my_promise) {
     return my_promise.status === 'fulfilled';
 }
@@ -99,8 +135,8 @@ Promise.allSettled(promises_tech).then((feeds) => {
     });
 
 
-
-    template_doc = templates.techdocument(output);
+    navbarSection = generateNavbarList('tech');
+    template_doc = templates.document(output, navbarSection);
 
     createFile('./dist/tech.html', template_doc);
 
@@ -134,11 +170,8 @@ Promise.allSettled(promises_news).then((feeds) => {
     });
 
 
-
-
-
-
-    template_doc = templates.newsdocument(output);
+    navbarSection = generateNavbarList('news');
+    template_doc = templates.document(output, navbarSection);
 
     createFile('./dist/news.html', template_doc);
 
@@ -174,8 +207,8 @@ Promise.allSettled(promises_finance).then((feeds) => {
 
 
 
-
-    template_doc = templates.financedocument(output);
+    navbarSection = generateNavbarList('finance');
+    template_doc = templates.document(output, navbarSection);
 
     createFile('./dist/finance.html', template_doc);
 
