@@ -4,13 +4,13 @@ const templates = require('./templates.js')
 
 let my_parser = new Parser();
 
-const promises = [];
+// const promises = [];
 
 const promises_tech = [];
 const promises_news = [];
 const promises_finance = [];
 
-const my_sources = JSON.parse(fs.readFileSync('sources.json'));
+// const my_sources = JSON.parse(fs.readFileSync('sources.json'));
 
 
 const my_sources_tech = JSON.parse(fs.readFileSync('sources_tech.json'));
@@ -42,9 +42,9 @@ function itemTemplate(item) {
 }
 
 function pubDateDisplay(input_pubDate) {
-    new_str = input_pubDate.replace(/(\d)(T)(\d)/, '$1 $3');
-    sec_str = new_str.replace(/\.000Z/, '');
-    third_str = sec_str.replace(/\+0000/, '');
+    var new_str = input_pubDate.replace(/(\d)(T)(\d)/, '$1 $3');
+    var sec_str = new_str.replace(/\.000Z/, '');
+    var third_str = sec_str.replace(/\+0000/, '');
     return third_str;
 }
 
@@ -55,15 +55,15 @@ function pubDateDisplay(input_pubDate) {
 //     });
 // });
 
-my_sources_tech.items.forEach(function (item, in_index) {
+my_sources_tech.items.forEach(function (item) {
     promises_tech.push(my_parser.parseURL(item.url));
 });
 
-my_sources_news.items.forEach(function (item, in_index) {
+my_sources_news.items.forEach(function (item) {
     promises_news.push(my_parser.parseURL(item.url));
 });
 
-my_sources_finance.items.forEach(function (item, in_index) {
+my_sources_finance.items.forEach(function (item) {
     promises_finance.push(my_parser.parseURL(item.url));
 });
 
@@ -100,7 +100,7 @@ const navbarListLookup = {
 
 
 function generateNavbarList(input_pagetype) {
-    retStr = navbarListLookup[input_pagetype];
+    var retStr = navbarListLookup[input_pagetype];
     return retStr;
 }
 
@@ -149,8 +149,8 @@ function feedGeneration(feeds, feed_type, target_url) {
 
     });
 
-    navbarSection = generateNavbarList(feed_type);
-    template_doc = templates.document(output, navbarSection);
+    var navbarSection = generateNavbarList(feed_type);
+    var template_doc = templates.document(output, navbarSection);
 
     createFile(target_url, template_doc);
 }
