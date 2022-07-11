@@ -68,24 +68,6 @@ my_sources_finance.items.forEach(function (item, in_index) {
 });
 
 
-
-// commented out previous
-// Promise.all(promises).then((feeds) => {
-//     let output = '';
-
-//     feeds.forEach((feed, my_index) => {
-//         output += '<section class="row">';
-//             output += '<div class="col">';
-//                 output += `<h2 class="h3">${feed.title}</h2>`;
-//                 output += `<h3 class="h3">${my_index}</h3>`;
-//                 output += '<ul class="mb-4">';
-//                 output += feed.items.slice(0,10).map(itemTemplate).join('');
-//                 output += '</ul>';
-//             output += '</div>';
-//         output += '</section>';
-
-//     });
-
 function checkFulfilled(my_promise) {
     return my_promise.status === 'fulfilled';
 }
