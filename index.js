@@ -109,76 +109,21 @@ function checkFulfilled(my_promise) {
 }
 
 Promise.allSettled(promises_tech).then((feeds) => {
-    let output = '';
-
-    const fulfilled_promises = feeds.filter(checkFulfilled);
-
-    fulfilled_promises.forEach((feed, my_index) => {
-        output += '<div class="accordion-item">';
-        output += `<h2 class="accordion-header" id="heading${my_index}">`;
-        output += `<button class="accordion-button" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse${my_index}" aria-expanded="true" aria-controls="collapse${my_index}">`;
-        output += `${feed.value.title}`;
-        output += '</button>';
-        output += '</h2>';
-
-        output += `<div id="collapse${my_index}" class="accordion-collapse collapse " aria-labelledby="heading${my_index}"
-            data-bs-parent="#accordionDigest">`;
-
-        output += '<ul class="mb-4">';
-        output += feed.value.items.slice(0, 10).map(itemTemplate).join('');
-        output += '</ul>';
-        output += '</div>';
-
-        output += '</div>';
-
-    });
-
-
-    navbarSection = generateNavbarList('tech');
-    template_doc = templates.document(output, navbarSection);
-
-    createFile('./dist/tech.html', template_doc);
-
+    feedGeneration(feeds, 'tech', './dist/tech.html');
 });
 
 
 Promise.allSettled(promises_news).then((feeds) => {
-    let output = '';
-
-    const fulfilled_promises = feeds.filter(checkFulfilled);
-
-    fulfilled_promises.forEach((feed, my_index) => {
-        output += '<div class="accordion-item">';
-        output += `<h2 class="accordion-header" id="heading${my_index}">`;
-        output += `<button class="accordion-button" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse${my_index}" aria-expanded="true" aria-controls="collapse${my_index}">`;
-        output += `${feed.value.title}`;
-        output += '</button>';
-        output += '</h2>';
-
-        output += `<div id="collapse${my_index}" class="accordion-collapse collapse " aria-labelledby="heading${my_index}"
-            data-bs-parent="#accordionDigest">`;
-
-        output += '<ul class="mb-4">';
-        output += feed.value.items.slice(0, 10).map(itemTemplate).join('');
-        output += '</ul>';
-        output += '</div>';
-
-        output += '</div>';
-
-    });
-
-
-    navbarSection = generateNavbarList('news');
-    template_doc = templates.document(output, navbarSection);
-
-    createFile('./dist/news.html', template_doc);
-
+    feedGeneration(feeds, 'news', './dist/news.html');
 });
 
 
 Promise.allSettled(promises_finance).then((feeds) => {
+    feedGeneration(feeds, 'finance', './dist/finance.html');
+
+});
+
+function feedGeneration(feeds, feed_type, target_url) {
     let output = '';
 
     const fulfilled_promises = feeds.filter(checkFulfilled);
@@ -204,12 +149,8 @@ Promise.allSettled(promises_finance).then((feeds) => {
 
     });
 
-
-
-
-    navbarSection = generateNavbarList('finance');
+    navbarSection = generateNavbarList(feed_type);
     template_doc = templates.document(output, navbarSection);
 
-    createFile('./dist/finance.html', template_doc);
-
-});
+    createFile(target_url, template_doc);
+}
