@@ -21,31 +21,31 @@ const my_sources_finance = JSON.parse(fs.readFileSync('sources_finance.json'));
 fs.mkdir('./dist', () => { });
 
 function createFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) => {
-        if (!err) {
-            console.log('File created: ' + fileName);
-        }
-    });
+  fs.writeFile(fileName, data, (err) => {
+    if (!err) {
+      console.log('File created: ' + fileName);
+    }
+  });
 }
 
 
 function itemTemplate(item) {
-    // console.log("item link: " + item.link);
-    // console.log("item title: " + item.title);
-    // console.log("item pubDate: " + item.pubDate);
-    // console.log("pubDate Display: " + pubDateDisplay(item.pubDate));
+  // console.log("item link: " + item.link);
+  // console.log("item title: " + item.title);
+  // console.log("item pubDate: " + item.pubDate);
+  // console.log("pubDate Display: " + pubDateDisplay(item.pubDate));
 
-    return `<li class="mb-1">
+  return `<li class="mb-1">
         <a rel="noopener" target="_blank" href="${item.link}" title="${item.title}">${item.title}</a>
         <time datetime="${item.pubDate}" class="ps-2 small">${pubDateDisplay(item.pubDate)}</time>
     </li>`
 }
 
 function pubDateDisplay(input_pubDate) {
-    var new_str = input_pubDate.replace(/(\d)(T)(\d)/, '$1 $3');
-    var sec_str = new_str.replace(/\.000Z/, '');
-    var third_str = sec_str.replace(/\+0000/, '');
-    return third_str;
+  var new_str = input_pubDate.replace(/(\d)(T)(\d)/, '$1 $3');
+  var sec_str = new_str.replace(/\.000Z/, '');
+  var third_str = sec_str.replace(/\+0000/, '');
+  return third_str;
 }
 
 // my_sources.sections.forEach( function(section, out_index) { 
@@ -56,20 +56,20 @@ function pubDateDisplay(input_pubDate) {
 // });
 
 my_sources_tech.items.forEach(function (item) {
-    promises_tech.push(my_parser.parseURL(item.url));
+  promises_tech.push(my_parser.parseURL(item.url));
 });
 
 my_sources_news.items.forEach(function (item) {
-    promises_news.push(my_parser.parseURL(item.url));
+  promises_news.push(my_parser.parseURL(item.url));
 });
 
 my_sources_finance.items.forEach(function (item) {
-    promises_finance.push(my_parser.parseURL(item.url));
+  promises_finance.push(my_parser.parseURL(item.url));
 });
 
 
 const navbarListLookup = {
-    "tech": `<li class="nav-item">
+  "tech": `<li class="nav-item">
     <a class="nav-link active" aria-current="page" href="./tech.html">Tech</a>
   </li>
   <li class="nav-item">
@@ -78,7 +78,7 @@ const navbarListLookup = {
   <li class="nav-item">
     <a class="nav-link " href="./finance.html">Finance</a>
   </li>`,
-    "news": `<li class="nav-item">
+  "news": `<li class="nav-item">
     <a class="nav-link" aria-current="page" href="./tech.html">Tech</a>
   </li>
   <li class="nav-item">
@@ -87,7 +87,7 @@ const navbarListLookup = {
   <li class="nav-item">
     <a class="nav-link" href="./finance.html">Finance</a>
   </li>`,
-    "finance": `<li class="nav-item">
+  "finance": `<li class="nav-item">
     <a class="nav-link" aria-current="page" href="./tech.html">Tech</a>
   </li>
   <li class="nav-item">
@@ -100,57 +100,57 @@ const navbarListLookup = {
 
 
 function generateNavbarList(input_pagetype) {
-    var retStr = navbarListLookup[input_pagetype];
-    return retStr;
+  var retStr = navbarListLookup[input_pagetype];
+  return retStr;
 }
 
 function checkFulfilled(my_promise) {
-    return my_promise.status === 'fulfilled';
+  return my_promise.status === 'fulfilled';
 }
 
 Promise.allSettled(promises_tech).then((feeds) => {
-    feedGeneration(feeds, 'tech', './dist/tech.html');
+  feedGeneration(feeds, 'tech', './dist/tech.html');
 });
 
 
 Promise.allSettled(promises_news).then((feeds) => {
-    feedGeneration(feeds, 'news', './dist/news.html');
+  feedGeneration(feeds, 'news', './dist/news.html');
 });
 
 
 Promise.allSettled(promises_finance).then((feeds) => {
-    feedGeneration(feeds, 'finance', './dist/finance.html');
+  feedGeneration(feeds, 'finance', './dist/finance.html');
 
 });
 
 function feedGeneration(feeds, feed_type, target_url) {
-    let output = '';
+  let output = '';
 
-    const fulfilled_promises = feeds.filter(checkFulfilled);
+  const fulfilled_promises = feeds.filter(checkFulfilled);
 
-    fulfilled_promises.forEach((feed, my_index) => {
-        output += '<div class="accordion-item">';
-        output += `<h2 class="accordion-header" id="heading${my_index}">`;
-        output += `<button class="accordion-button" type="button" data-bs-toggle="collapse"
+  fulfilled_promises.forEach((feed, my_index) => {
+    output += '<div class="accordion-item">';
+    output += `<h2 class="accordion-header" id="heading${my_index}">`;
+    output += `<button class="accordion-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapse${my_index}" aria-expanded="true" aria-controls="collapse${my_index}">`;
-        output += `${feed.value.title}`;
-        output += '</button>';
-        output += '</h2>';
+    output += `${feed.value.title}`;
+    output += '</button>';
+    output += '</h2>';
 
-        output += `<div id="collapse${my_index}" class="accordion-collapse collapse " aria-labelledby="heading${my_index}"
+    output += `<div id="collapse${my_index}" class="accordion-collapse collapse " aria-labelledby="heading${my_index}"
             data-bs-parent="#accordionDigest">`;
 
-        output += '<ul class="mb-4">';
-        output += feed.value.items.slice(0, 10).map(itemTemplate).join('');
-        output += '</ul>';
-        output += '</div>';
+    output += '<ul class="mb-4">';
+    output += feed.value.items.slice(0, 10).map(itemTemplate).join('');
+    output += '</ul>';
+    output += '</div>';
 
-        output += '</div>';
+    output += '</div>';
 
-    });
+  });
 
-    var navbarSection = generateNavbarList(feed_type);
-    var template_doc = templates.document(output, navbarSection);
+  var navbarSection = generateNavbarList(feed_type);
+  var template_doc = templates.document(output, navbarSection);
 
-    createFile(target_url, template_doc);
+  createFile(target_url, template_doc);
 }
