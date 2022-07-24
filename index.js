@@ -88,10 +88,10 @@ Promise.allSettled(promises_twitter).then((feeds) => {
 
       const my_url = feed.value.config.url;
 
-      //console.log('my_url: ' + my_url);
+      console.log('my_url: ' + my_url);
       const url_processed = new URL(my_url);
       const url_path = url_processed.pathname;
-      //console.log('url pathname: ' + url_path);
+      console.log('url pathname: ' + url_path);
 
       const splitPathArray = url_path.split('/');
       //console.log('splitPathArray: ' + splitPathArray);
@@ -99,9 +99,9 @@ Promise.allSettled(promises_twitter).then((feeds) => {
       const twitter_name = getTwitterName(twitter_id);
       const twitter_title = getTwitterTitle(twitter_id);
       
-      //console.log('twitter_id: ' + twitter_id);
-      //console.log('twitter name: ' + getTwitterName(twitter_id));
-      //console.log('twitter title: ' + getTwitterTitle(twitter_id));
+      console.log('twitter_id: ' + twitter_id);
+      console.log('twitter name: ' + getTwitterName(twitter_id));
+      console.log('twitter title: ' + getTwitterTitle(twitter_id));
 
       output += '<div class="accordion-item">';
       output += `<h2 class="accordion-header" id="heading${my_index}">`;
@@ -122,8 +122,8 @@ Promise.allSettled(promises_twitter).then((feeds) => {
 
       output += '</div>';
 
-    //console.log('response ' + my_index + ': ');
-    //console.log(JSON.stringify(feed.value.data.data));
+    console.log('response ' + my_index + ': ');
+    console.log(JSON.stringify(feed.value.data.data));
   });
 
   var navbarSection = feedGenModule.generateNavbarList('twitter');
