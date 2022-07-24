@@ -87,6 +87,8 @@ Promise.allSettled(promises_twitter).then((feeds) => {
 
   const fulfilled_promises = feeds.filter(checkFulfilled);
 
+  console.log('fulfilled promises count: ' + fulfilled_promises.length);
+
   fulfilled_promises.forEach((feed, my_index) => {
 
       const my_url = feed.value.config.url;
