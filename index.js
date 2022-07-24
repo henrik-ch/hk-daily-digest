@@ -82,6 +82,9 @@ function checkFulfilled(my_promise) {
 Promise.allSettled(promises_twitter).then((feeds) => {
   let output = '';
 
+
+  console.log('in twitter feeds settled: ' + feeds);
+
   const fulfilled_promises = feeds.filter(checkFulfilled);
 
   fulfilled_promises.forEach((feed, my_index) => {
