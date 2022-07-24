@@ -11,7 +11,6 @@ const templates = require('./templates.js')
 
 const feedGenModule = require('./feedGeneration.js');
 
-
 let axios = require('axios').default;
 
 let my_parser = new Parser();
@@ -25,25 +24,23 @@ fs.mkdir('./dist', () => { });
 const promises_tech = [];
 const promises_news = [];
 const promises_finance = [];
-
 const promises_twitter = [];
 
 const my_sources_tech = JSON.parse(fs.readFileSync('sources_tech.json'));
 const my_sources_news = JSON.parse(fs.readFileSync('sources_news.json'));
 const my_sources_finance = JSON.parse(fs.readFileSync('sources_finance.json'));
-
 const my_sources_twitter = JSON.parse(fs.readFileSync('sources_twitter.json'));
 
 // find the twitter name for the given twitter ID
 function getTwitterName(twitterID) {
   return my_sources_twitter.items.find( (item) =>  item.twitter_id === twitterID ).twitter_user;
 }
-console.log('luke twitter name: ' + getTwitterName('362022429'));
+//console.log('luke twitter name: ' + getTwitterName('362022429'));
 
 function getTwitterTitle(twitterID) {
   return my_sources_twitter.items.find( (item) =>  item.twitter_id === twitterID ).title;
 }
-console.log('luke twitter title: ' + getTwitterTitle('362022429'));
+//console.log('luke twitter title: ' + getTwitterTitle('362022429'));
 
 my_sources_tech.items.forEach(function (item) {
   promises_tech.push(my_parser.parseURL(item.url));
@@ -83,10 +80,7 @@ function checkFulfilled(my_promise) {
 
 
 Promise.allSettled(promises_twitter).then((feeds) => {
-
   let output = '';
-
-
 
   const fulfilled_promises = feeds.filter(checkFulfilled);
 
@@ -100,14 +94,14 @@ Promise.allSettled(promises_twitter).then((feeds) => {
       console.log('url pathname: ' + url_path);
 
       const splitPathArray = url_path.split('/');
-      console.log('splitPathArray: ' + splitPathArray);
+      //console.log('splitPathArray: ' + splitPathArray);
       const twitter_id = splitPathArray[splitPathArray.length - 2];
       const twitter_name = getTwitterName(twitter_id);
       const twitter_title = getTwitterTitle(twitter_id);
       
-      console.log('twitter_id: ' + twitter_id);
-      console.log('twitter name: ' + getTwitterName(twitter_id));
-      console.log('twitter title: ' + getTwitterTitle(twitter_id));
+      //console.log('twitter_id: ' + twitter_id);
+      //console.log('twitter name: ' + getTwitterName(twitter_id));
+      //console.log('twitter title: ' + getTwitterTitle(twitter_id));
 
       output += '<div class="accordion-item">';
       output += `<h2 class="accordion-header" id="heading${my_index}">`;
@@ -128,13 +122,8 @@ Promise.allSettled(promises_twitter).then((feeds) => {
 
       output += '</div>';
 
-
-
-    console.log('response ' + my_index + ': ');
-    console.log(JSON.stringify(feed.value.data.data));
-
-
-
+    //console.log('response ' + my_index + ': ');
+    //console.log(JSON.stringify(feed.value.data.data));
   });
 
   var navbarSection = feedGenModule.generateNavbarList('twitter');
@@ -163,7 +152,6 @@ function getTwitterFeed(twitterID) {
 
 
 const my_token = 'Bearer ' + process.env.TWITTER_BEARER_TOKEN;
-
 
 // var firstConfig = {
 //   method: 'get',
