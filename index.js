@@ -88,10 +88,10 @@ Promise.allSettled(promises_twitter).then((feeds) => {
 
       const my_url = feed.value.config.url;
 
-      console.log('my_url: ' + my_url);
+      //console.log('my_url: ' + my_url);
       const url_processed = new URL(my_url);
       const url_path = url_processed.pathname;
-      console.log('url pathname: ' + url_path);
+      //console.log('url pathname: ' + url_path);
 
       const splitPathArray = url_path.split('/');
       //console.log('splitPathArray: ' + splitPathArray);

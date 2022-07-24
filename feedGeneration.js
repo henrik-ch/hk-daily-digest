@@ -128,15 +128,15 @@ function pubDateDisplay(input_pubDate) {
 // module.exports.feedGeneration = function (
 
 module.exports.twitterItemTemplate = function (item, user_name) {
-  console.log("item id: " + item.id);
-  console.log("item text: " + item.text);
+  //console.log("item id: " + item.id);
+  //console.log("item text: " + item.text);
   // console.log("item pubDate: " + item.pubDate);
   // console.log("pubDate Display: " + pubDateDisplay(item.pubDate));
 
 
   // make the link url
   let link_url = `https://twitter.com/${user_name}/status/${item.id}`;
-  console.log("link_url: " + link_url);
+  //console.log("link_url: " + link_url);
 
 
   // return `<li class="mb-1">
