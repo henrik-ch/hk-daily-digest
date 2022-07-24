@@ -35,12 +35,12 @@ const my_sources_twitter = JSON.parse(fs.readFileSync('sources_twitter.json'));
 function getTwitterName(twitterID) {
   return my_sources_twitter.items.find( (item) =>  item.twitter_id === twitterID ).twitter_user;
 }
-//console.log('luke twitter name: ' + getTwitterName('362022429'));
+console.log('luke twitter name: ' + getTwitterName('362022429'));
 
 function getTwitterTitle(twitterID) {
   return my_sources_twitter.items.find( (item) =>  item.twitter_id === twitterID ).title;
 }
-//console.log('luke twitter title: ' + getTwitterTitle('362022429'));
+console.log('luke twitter title: ' + getTwitterTitle('362022429'));
 
 my_sources_tech.items.forEach(function (item) {
   promises_tech.push(my_parser.parseURL(item.url));
