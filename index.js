@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const url = require('url');
+const util = require('util');
 
 console.log(process.env);
 
@@ -58,6 +59,7 @@ my_sources_twitter.items.forEach(function (item) {
   promises_twitter.push(getTwitterFeed(item.twitter_id));
 });
 
+console.log('promises_twitter first print: ' + JSON.stringify(promises_twitter));
 
 Promise.allSettled(promises_tech).then((feeds) => {
   feedGenModule.feedGeneration(feeds, 'tech', './dist/tech.html');
@@ -82,6 +84,9 @@ function checkFulfilled(my_promise) {
 Promise.allSettled(promises_twitter).then((feeds) => {
   let output = '';
 
+  console.log('promises_twitter second print: ' + JSON.stringify(promises_twitter));
+
+  console.log('feeds first print: ' + util.inspect(feeds));
 
   console.log('in twitter feeds settled: ' + feeds);
 
