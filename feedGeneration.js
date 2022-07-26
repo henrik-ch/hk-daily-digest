@@ -13,7 +13,7 @@ const navbarListLookup = {
       <a class="nav-link " href="./finance.html">Finance</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link active" href="./twitter.html">Twitter</a>
+    <a class="nav-link" href="./twitter.html">Twitter</a>
   </li>`,
   "news": `<li class="nav-item">
       <a class="nav-link" aria-current="page" href="./tech.html">Tech</a>
@@ -25,7 +25,7 @@ const navbarListLookup = {
       <a class="nav-link" href="./finance.html">Finance</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link active" href="./twitter.html">Twitter</a>
+    <a class="nav-link" href="./twitter.html">Twitter</a>
   </li>`,
   "finance": `<li class="nav-item">
       <a class="nav-link" aria-current="page" href="./tech.html">Tech</a>
@@ -37,7 +37,7 @@ const navbarListLookup = {
       <a class="nav-link active" href="./finance.html">Finance</a>
     </li>
     <li class="nav-item">
-    <a class="nav-link active" href="./twitter.html">Twitter</a>
+    <a class="nav-link" href="./twitter.html">Twitter</a>
   </li>`,
   "twitter": `<li class="nav-item">
     <a class="nav-link" aria-current="page" href="./tech.html">Tech</a>
