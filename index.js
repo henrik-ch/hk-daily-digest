@@ -152,11 +152,17 @@ function getTwitterFeed(twitterID) {
   
   const url = `https://api.twitter.com/2/users/${twitterID}/tweets`
 
+  console.log('twitter feed url: ' + url);
   
+
   let retGet = axios.get(url, { 
     headers: { 
       'Authorization': my_token } });
   
+
+  console.log('twitter feed headers: ' + JSON.stringify(retGet.headers));
+  console.log('twitter feed retget: ' + util.inspect(retGet));
+
   return retGet;
 }
 
