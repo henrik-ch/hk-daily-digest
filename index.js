@@ -147,7 +147,7 @@ Promise.allSettled(promises_twitter).then((feeds) => {
 
 function getTwitterFeed(twitterID) {
 
-  const my_token = 'Bearer ' + process.env.API_KEY;
+  const my_token = 'Bearer ' + 'AAAAAAAAAAAAAAAAAAAAANcLeAEAAAAA3kd2d5jqU%2BbeSeBPMcXkJeHaE8Q%3Df782wwqrzkZqcZdzXR2SsXjkGkxABind8LDb8svKNpZlmnrx0n';
 
   const checker_check = 'Björn Börjesson ' + my_token;
   console.log('checker_check: ' + checker_check);
@@ -169,7 +169,7 @@ function getTwitterFeed(twitterID) {
 }
 
 
-const my_token = 'Bearer ' + process.env.API_KEY;
+// const my_token = 'Bearer ' + 'AAAAAAAAAAAAAAAAAAAAANcLeAEAAAAA3kd2d5jqU%2BbeSeBPMcXkJeHaE8Q%3Df782wwqrzkZqcZdzXR2SsXjkGkxABind8LDb8svKNpZlmnrx0n';
 
 // var firstConfig = {
 //   method: 'get',
