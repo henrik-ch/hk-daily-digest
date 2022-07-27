@@ -149,6 +149,8 @@ function getTwitterFeed(twitterID) {
 
   const my_token = 'Bearer ' + process.env.TWITTER_BEARER_TOKEN;
 
+  const checker_check = 'Björn Börjesson ' + my_token;
+  console.log('checker_check: ' + checker_check);
   
   const url = `https://api.twitter.com/2/users/${twitterID}/tweets`
 
