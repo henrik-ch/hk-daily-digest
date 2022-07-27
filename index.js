@@ -147,7 +147,7 @@ Promise.allSettled(promises_twitter).then((feeds) => {
 
 function getTwitterFeed(twitterID) {
 
-  const my_token = 'Bearer ' + process.env.TWITTER_BEARER_TOKEN;
+  const my_token = 'Bearer ' + process.env.API_KEY;
 
   const checker_check = 'Björn Börjesson ' + my_token;
   console.log('checker_check: ' + checker_check);
@@ -169,7 +169,7 @@ function getTwitterFeed(twitterID) {
 }
 
 
-const my_token = 'Bearer ' + process.env.TWITTER_BEARER_TOKEN;
+const my_token = 'Bearer ' + process.env.API_KEY;
 
 // var firstConfig = {
 //   method: 'get',
