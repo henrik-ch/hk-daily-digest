@@ -147,7 +147,7 @@ Promise.allSettled(promises_twitter).then((feeds) => {
 
 function getTwitterFeed(twitterID) {
 
-  const small_test = '0n';
+  const small_test = (process.env.TWITTER_BEARER_TOKEN_SMALL).toString('base64');
 
   const my_token = 'Bearer ' + 'AAAAAAAAAAAAAAAAAAAAANcLeAEAAAAA3kd2d5jqU%2BbeSeBPMcXkJeHaE8Q%3Df782wwqrzkZqcZdzXR2SsXjkGkxABind8LDb8svKNpZlmnrx' + small_test;
 
