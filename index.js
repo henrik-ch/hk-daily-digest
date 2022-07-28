@@ -6,6 +6,9 @@ const util = require('util');
 console.log(process.env);
 
 
+console.log('process argv: ' + process.argv);
+
+
 const fs = require('fs');
 let Parser = require('rss-parser');
 const templates = require('./templates.js')
