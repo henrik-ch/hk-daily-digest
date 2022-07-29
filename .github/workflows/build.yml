@@ -13,7 +13,7 @@ jobs:
       - name: create env file
         run: |
           touch .env
-          echo TWITTER_BEARER_TOKEN=${{ secrets.TWITTER_BEARER_TOKEN}} >> .env
+          echo MY_HEMLIG_HEMLIS=SUPER_HEMLIG >> .env
       - name: Checkout 🛎️
         uses: actions/checkout@v2
         with:
