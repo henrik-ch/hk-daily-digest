@@ -150,10 +150,10 @@ Promise.allSettled(promises_twitter).then((feeds) => {
 
 function getTwitterFeed(twitterID) {
 
-  // const small_test = ('0n').toString('base64');
-  // const my_token = 'Bearer ' + 'AAAAAAAAAAAAAAAAAAAAANcLeAEAAAAA3kd2d5jqU%2BbeSeBPMcXkJeHaE8Q%3Df782wwqrzkZqcZdzXR2SsXjkGkxABind8LDb8svKNpZlmnrx' + small_test;
+  const small_test = ('0n').toString('base64');
+  const my_token = 'Bearer ' + 'AAAAAAAAAAAAAAAAAAAAANcLeAEAAAAA3kd2d5jqU%2BbeSeBPMcXkJeHaE8Q%3Df782wwqrzkZqcZdzXR2SsXjkGkxABind8LDb8svKNpZlmnrx' + small_test;
 
-  const my_token = 'Bearer ' + (process.env.TWITTER_BEARER_TOKEN).toString('base64');
+  // const my_token = 'Bearer ' + (process.env.TWITTER_BEARER_TOKEN).toString('base64');
 
   const checker_check = 'Björn Börjesson ' + my_token;
   console.log('checker_check: ' + checker_check);
@@ -175,50 +175,6 @@ function getTwitterFeed(twitterID) {
 }
 
 
-// const my_token = 'Bearer ' + 'AAAAAAAAAAAAAAAAAAAAANcLeAEAAAAA3kd2d5jqU%2BbeSeBPMcXkJeHaE8Q%3Df782wwqrzkZqcZdzXR2SsXjkGkxABind8LDb8svKNp';
-
-// var firstConfig = {
-//   method: 'get',
-//   url: 'https://api.twitter.com/2/users/362022429/tweets',
-//   headers: {
-//     'Authorization': my_token
-//   }
-// };
-
-
-// console.log('first config is: ');
-// console.log(firstConfig);
-
-// axios(firstConfig)
-//   .then(function (response) {
-//     console.log('first response: ');
-
-// axios.get('https://api.twitter.com/2/users/362022429/tweets', { 
-//   headers: { 
-//     'Authorization': my_token } })
-//     .then(function (response) {
-//     console.log('first response: ');
-//     console.log(JSON.stringify(response.data));
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//   });
-
-
-
-// axios.get('https://api.twitter.com/2/users/44196397/tweets', { 
-//   headers: { 
-//     'Authorization': my_token } })
-//     .then(function (response) {
-//       console.log('second response: ');
-//       console.log(JSON.stringify(response.data));
-//     })
-//     .catch(function (error) {
-//       console.log(error);
-//     });
 
 
 console.log('done');
-
-//const auth_string = secres.data.headers['authorization'];
-//console.log(auth_string)
