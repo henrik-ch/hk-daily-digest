@@ -14,6 +14,8 @@ jobs:
         run: |
           touch .env
           echo MY_HEMLIG_HEMLIS=SUPER_HEMLIG >> .env
+          echo this is the context
+          echo "$GITHUB_CONTEXT"
       - name: Checkout 🛎️
         uses: actions/checkout@v2
         with:
