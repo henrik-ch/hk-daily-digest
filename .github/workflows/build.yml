@@ -12,8 +12,7 @@ jobs:
     steps:
       - name: create env file
         run: |
-          touch .env
-          echo MY_HEMLIG_HEMLIS=SUPER_HEMLIG >> .env
+          touch .env          
           echo this is the context
           echo "$GITHUB_CONTEXT"
       - name: Checkout 🛎️
