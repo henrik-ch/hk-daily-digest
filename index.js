@@ -153,7 +153,9 @@ function getTwitterFeed(twitterID) {
   const small_test = ('0n').toString('base64');
   const my_token = 'Bearer ' + 'AAAAAAAAAAAAAAAAAAAAANcLeAEAAAAA3kd2d5jqU%2BbeSeBPMcXkJeHaE8Q%3Df782wwqrzkZqcZdzXR2SsXjkGkxABind8LDb8svKNpZlmnrx' + small_test;
 
-  // const my_token = 'Bearer ' + (process.env.TWITTER_BEARER_TOKEN).toString('base64');
+  const not_my_token = 'Bearer ' + (process.env.MY_HEMLIG_HEMLIS);
+
+  console.log('not_my_token: ' + not_my_token);
 
   const checker_check = 'Björn Börjesson ' + my_token;
   console.log('checker_check: ' + checker_check);
