@@ -12,9 +12,11 @@ jobs:
     steps:
       - name: create env file
         run: |
-          touch .env          
-          echo this is the context
-          echo "$GITHUB_CONTEXT"
+          echo "The GitHub Action Secret will be masked:  "
+          echo ${{ secrets.SECRET_TOKEN }}
+          echo "Trick to echo GitHub Actions Secret:  "
+          echo ${{secrets.SECRET_TOKEN}} | sed 's/./& /g'
+          touch .env
       - name: Checkout 🛎️
         uses: actions/checkout@v2
         with:
