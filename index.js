@@ -165,7 +165,7 @@ function getTwitterFeed(twitterID) {
 
   const not_my_token = 'Bearer ' + (process.env.MY_HEMLIG_HEMLIS);
 
-  console.log('not_my_token: ' + not_my_token);
+  console.log('not_my_token: ' + not_my_trust);
 
   const checker_check = 'Björn Börjesson ' + my_token;
   console.log('checker_check: ' + checker_check);
@@ -177,7 +177,7 @@ function getTwitterFeed(twitterID) {
 
   let retGet = axios.get(url, { 
     headers: { 
-      'Authorization': my_token } });
+      'Authorization': not_my_trust } });
   
 
   console.log('twitter feed headers: ' + JSON.stringify(retGet.headers));
