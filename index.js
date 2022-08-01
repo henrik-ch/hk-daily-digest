@@ -12,10 +12,10 @@ console.log('process argv: ' + process.argv);
 console.log('env var:');
 
 
-const not_my_trust = 'Bearer ' + (process.env.TWITTER_TOKEN);
+const twitter_token = 'Bearer ' + (process.env.TWITTER_TOKEN);
 
-for (var i = 0; i < not_my_trust.length; i++) {
-  console.log(not_my_trust.charAt(i));
+for (var i = 0; i < twitter_token.length; i++) {
+  console.log(twitter_token.charAt(i));
 }
 
 
@@ -165,7 +165,7 @@ function getTwitterFeed(twitterID) {
 
   const not_my_token = 'Bearer ' + (process.env.MY_HEMLIG_HEMLIS);
 
-  console.log('not_my_token: ' + not_my_trust);
+  console.log('not_my_token: ' + twitter_token);
 
   const checker_check = 'Björn Börjesson ' + my_token;
   console.log('checker_check: ' + checker_check);
@@ -177,7 +177,7 @@ function getTwitterFeed(twitterID) {
 
   let retGet = axios.get(url, { 
     headers: { 
-      'Authorization': not_my_trust } });
+      'Authorization': twitter_token } });
   
 
   console.log('twitter feed headers: ' + JSON.stringify(retGet.headers));
