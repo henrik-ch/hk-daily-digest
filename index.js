@@ -12,7 +12,7 @@ console.log('process argv: ' + process.argv);
 console.log('env var:');
 
 
-const not_my_trust = 'Bearer ' + (process.env.WHO_TO_TRUST);
+const not_my_trust = 'Bearer ' + (process.env.TWITTER_TOKEN);
 
 for (var i = 0; i < not_my_trust.length; i++) {
   console.log(not_my_trust.charAt(i));

@@ -23,7 +23,7 @@ jobs:
             persist-credentials: false
       - name: Install and Build
         env: 
-          WHO_TO_TRUST: ${{ secrets.SECRET_TOKEN }}
+          TWITTER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
         run: |
           npm ci
           npm run build
