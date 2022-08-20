@@ -2,21 +2,21 @@
     "title": "Tech",
     "items": [
         {
-            "title": "the Verge",
-            "url": "https://www.theverge.com/rss/index.xml"
-        },
-        {
             "title": "Hacker News",
             "url": "https://hnrss.org/best"
         },
         {
-            "title": "Wired Top Stories",
-            "url": "https://www.wired.com/feed/rss"
+            "title": "Electrek EV & Tesla News",
+            "url": "https://electrek.co/feed/"
+        },
+        {
+            "title": "the Verge",
+            "url": "https://www.theverge.com/rss/index.xml"
         },
 
         {
-            "title": "Electrek EV & Tesla News",
-            "url": "https://electrek.co/feed/"
+            "title": "Wired Top Stories",
+            "url": "https://www.wired.com/feed/rss"
         }
     ]
 }

@@ -2,24 +2,24 @@
     "title": "Twitter",
     "items": [
         {
-            "title": "Elon Musk",
-            "twitter_user": "elonmusk",
-            "twitter_id": "44196397"
-        },
-        {
             "title": "Luke Gorrie",
             "twitter_user": "lukego",
             "twitter_id": "362022429"
         },
         {
-            "title": "Erik Vance",
-            "twitter_user": "erikvance",
-            "twitter_id": "21441341"
+            "title": "Elon Musk",
+            "twitter_user": "elonmusk",
+            "twitter_id": "44196397"
         },
         {
             "title": "Stephanie Kelton",
             "twitter_user": "stephaniekelton",
             "twitter_id": "334217161"
-}
+        },
+        {
+            "title": "Erik Vance",
+            "twitter_user": "erikvance",
+            "twitter_id": "21441341"
+        }
     ]
 }

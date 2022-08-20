@@ -2,16 +2,16 @@
     "title": "Finance",
     "items": [
         {
+            "title": "Petrusko Blog",
+            "url": "https://petrusko.blogspot.com/feeds/posts/default?alt=rss"
+        },
+        {
             "title": "Of Dollars and Data",
             "url": "https://ofdollarsanddata.com/feed/"
         },
         {
             "title": "Morgan Housel - Collab Fund",
             "url": "http://feeds.feedburner.com/collabfund"
-        },
-        {
-            "title": "Petrusko Blog",
-            "url": "https://petrusko.blogspot.com/feeds/posts/default?alt=rss"
         }
     ]
     
