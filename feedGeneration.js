@@ -17,7 +17,25 @@ function getTwitterTitle(twitterID) {
 
 
 const navbarListLookup = {
+  "growth": `<li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="./growth.html">Growth</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" aria-current="page" href="./tech.html">Tech</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="./news.html">News</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="./finance.html">Finance</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="./twitter.html">Twitter</a>
+  </li>`,
   "tech": `<li class="nav-item">
+      <a class="nav-link" aria-current="page" href="./growth.html">Growth</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="./tech.html">Tech</a>
     </li>
     <li class="nav-item">
@@ -30,18 +48,24 @@ const navbarListLookup = {
     <a class="nav-link" href="./twitter.html">Twitter</a>
   </li>`,
   "news": `<li class="nav-item">
+      <a class="nav-link" aria-current="page" href="./growth.html">Growth</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" aria-current="page" href="./tech.html">Tech</a>
     </li>
     <li class="nav-item">
       <a class="nav-link active" href="./news.html">News</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="./finance.html">Finance</a>
+      <a class="nav-link " href="./finance.html">Finance</a>
     </li>
     <li class="nav-item">
     <a class="nav-link" href="./twitter.html">Twitter</a>
   </li>`,
   "finance": `<li class="nav-item">
+      <a class="nav-link" aria-current="page" href="./growth.html">Growth</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" aria-current="page" href="./tech.html">Tech</a>
     </li>
     <li class="nav-item">
@@ -54,17 +78,20 @@ const navbarListLookup = {
     <a class="nav-link" href="./twitter.html">Twitter</a>
   </li>`,
   "twitter": `<li class="nav-item">
-    <a class="nav-link" aria-current="page" href="./tech.html">Tech</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="./news.html">News</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link " href="./finance.html">Finance</a>
-  </li>
-  <li class="nav-item">
-  <a class="nav-link active" href="./twitter.html">Twitter</a>
-</li>`
+      <a class="nav-link" aria-current="page" href="./growth.html">Growth</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" aria-current="page" href="./tech.html">Tech</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="./news.html">News</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="./finance.html">Finance</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link active" href="./twitter.html">Twitter</a>
+  </li>`
 }
 
 
