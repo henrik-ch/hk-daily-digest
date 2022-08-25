@@ -243,6 +243,7 @@ function twitterItemTemplate(item, user_name) {
 
   return `<li class="mb-1">
         <a rel="noopener" target="_blank" href="${link_url}">${item.text}</a>
+        <time datetime="${item.pubDate}" class="ps-2 small">${pubDateDisplay(item.created_at)}</time>
     </li>`
 }
 
