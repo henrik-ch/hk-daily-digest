@@ -108,3 +108,7 @@ dist/news.html
 dist/tech.html
 dist/twitter.html
 dist/growth.html
+.devenv.flake.nix
+.devenv/
+.envrc
+.pre-commit-config.yaml
