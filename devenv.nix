@@ -2,7 +2,7 @@
 
 {
   # https://devenv.sh/basics/
-  env.GREET = "devenv";
+  env.GREET = "devenv daily digest";
 
   # https://devenv.sh/packages/
   packages = [ pkgs.git pkgs.nodejs-16_x pkgs.yarn ];
