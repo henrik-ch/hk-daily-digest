@@ -6,6 +6,10 @@
             "url": "https://hnrss.org/best"
         },
         {
+            "title": "OpenAI Blog",
+            "url": "https://openai.com/blog/rss/"
+        },
+        {
             "title": "Electrek EV & Tesla News",
             "url": "https://electrek.co/feed/"
         },
