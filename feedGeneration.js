@@ -165,8 +165,12 @@ function twitterFeedGeneration(feeds) {
     };
   });
 
+  const sorted_reduced_fulfilled_promises = [...reduced_fulfilled_promises].sort((a, b) =>
+    new Date(b.tweets[0].created_at) - new Date(a.tweets[0].created_at));
+
+
   //console.log('fulfilled promises count: ' + fulfilled_promises.length);
-  reduced_fulfilled_promises.forEach((feed, my_index) => {
+  sorted_reduced_fulfilled_promises.forEach((feed, my_index) => {
 
     //const my_url = feed.value.config.url;
 
@@ -207,7 +211,7 @@ function twitterFeedGeneration(feeds) {
 
     output += '</div>';
 
-    console.log('response ' + my_index + ': ');
+    //console.log('response ' + my_index + ': ');
     //console.log(JSON.stringify(feed.value.data.data.slice(0,2)));
   });
 
