@@ -109,3 +109,9 @@ dist/tech.html
 dist/twitter.html
 dist/growth.html
 pnpm-lock.yaml
+
+**/secrets
+**/*.key
+.direnv/
+file_with_secrets.env
+file_with_secrets.env.gpg
