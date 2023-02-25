@@ -155,7 +155,7 @@ function twitterFeedGeneration(feeds) {
     const twitter_id = splitPathArray[splitPathArray.length - 2];
     const twitter_name = getTwitterName(twitter_id);
     const twitter_title = getTwitterTitle(twitter_id);
-    const tweets = feed.value.data.data.slice(0, 5).map(item => twitterItemTemplate(item, twitter_name)).join('');
+    const tweets = feed.value.data.data.slice(0, 5);
 
     return {
       twitter_id: twitter_id,
@@ -200,7 +200,7 @@ function twitterFeedGeneration(feeds) {
             data-bs-parent="#accordionDigest">`;
 
     output += '<ul class="mb-4">';
-    output += tweets;
+    output += tweets.map(item => twitterItemTemplate(item, twitter_name)).join('');
     //output += '<p>test</p>';
     output += '</ul>';
     output += '</div>';
