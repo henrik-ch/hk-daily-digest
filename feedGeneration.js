@@ -146,20 +146,44 @@ function twitterFeedGeneration(feeds) {
   //console.log('in twitter feeds settled: ' + feeds);
   const fulfilled_promises = feeds.filter(checkFulfilled);
 
-  //console.log('fulfilled promises count: ' + fulfilled_promises.length);
-  fulfilled_promises.forEach((feed, my_index) => {
+  const reduced_fulfilled_promises = fulfilled_promises.map((feed) => {
 
     const my_url = feed.value.config.url;
-
-    //console.log('my_url: ' + my_url);
     const url_processed = new URL(my_url);
     const url_path = url_processed.pathname;
-    //console.log('url pathname: ' + url_path);
     const splitPathArray = url_path.split('/');
-    //console.log('splitPathArray: ' + splitPathArray);
     const twitter_id = splitPathArray[splitPathArray.length - 2];
     const twitter_name = getTwitterName(twitter_id);
     const twitter_title = getTwitterTitle(twitter_id);
+    const tweets = feed.value.data.data.slice(0, 5).map(item => twitterItemTemplate(item, twitter_name)).join('');
+
+    return {
+      twitter_id: twitter_id,
+      twitter_name: twitter_name,
+      twitter_title: twitter_title,
+      tweets: tweets,
+    };
+  });
+
+  //console.log('fulfilled promises count: ' + fulfilled_promises.length);
+  reduced_fulfilled_promises.forEach((feed, my_index) => {
+
+    //const my_url = feed.value.config.url;
+
+    //console.log('my_url: ' + my_url);
+    //const url_processed = new URL(my_url);
+    //const url_path = url_processed.pathname;
+    //console.log('url pathname: ' + url_path);
+    //const splitPathArray = url_path.split('/');
+    //console.log('splitPathArray: ' + splitPathArray);
+    // const twitter_id = splitPathArray[splitPathArray.length - 2];
+    // const twitter_name = getTwitterName(twitter_id);
+    // const twitter_title = getTwitterTitle(twitter_id);
+
+    const twitter_id = feed.twitter_id;
+    const twitter_name = feed.twitter_name;
+    const twitter_title = feed.twitter_title;
+    const tweets = feed.tweets;
 
     // console.log('twitter_id: ' + twitter_id);
     // console.log('twitter name: ' + getTwitterName(twitter_id));
@@ -176,15 +200,15 @@ function twitterFeedGeneration(feeds) {
             data-bs-parent="#accordionDigest">`;
 
     output += '<ul class="mb-4">';
-    output += feed.value.data.data.slice(0, 5).map(item => twitterItemTemplate(item, twitter_name)).join('');
+    output += tweets;
     //output += '<p>test</p>';
     output += '</ul>';
     output += '</div>';
 
     output += '</div>';
 
-    //console.log('response ' + my_index + ': ');
-    //console.log(JSON.stringify(feed.value.data.data));
+    console.log('response ' + my_index + ': ');
+    //console.log(JSON.stringify(feed.value.data.data.slice(0,2)));
   });
 
   var navbarSection = generateNavbarList('twitter');
