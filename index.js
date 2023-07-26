@@ -8,7 +8,7 @@ const util = require('util');
 // console.log('env var:');
 
 
-const twitter_token = 'Bearer ' + (process.env.TWITTER_TOKEN);
+//const twitter_token = 'Bearer ' + (process.env.TWITTER_TOKEN);
 
 // for (var i = 0; i < twitter_token.length; i++) {
 //   console.log(twitter_token.charAt(i));
@@ -35,13 +35,13 @@ const promises_growth = [];
 const promises_tech = [];
 const promises_news = [];
 const promises_finance = [];
-const promises_twitter = [];
+//const promises_twitter = [];
 
 const my_sources_growth = JSON.parse(fs.readFileSync('sources_growth.json'));
 const my_sources_tech = JSON.parse(fs.readFileSync('sources_tech.json'));
 const my_sources_news = JSON.parse(fs.readFileSync('sources_news.json'));
 const my_sources_finance = JSON.parse(fs.readFileSync('sources_finance.json'));
-const my_sources_twitter = JSON.parse(fs.readFileSync('sources_twitter.json'));
+//const my_sources_twitter = JSON.parse(fs.readFileSync('sources_twitter.json'));
 
 my_sources_growth.items.forEach(function (item) {
   promises_growth.push(my_parser.parseURL(item.url));
@@ -59,9 +59,9 @@ my_sources_finance.items.forEach(function (item) {
   promises_finance.push(my_parser.parseURL(item.url));
 });
 
-my_sources_twitter.items.forEach(function (item) {
-  promises_twitter.push(getTwitterFeed(item.twitter_id));
-});
+// my_sources_twitter.items.forEach(function (item) {
+//   promises_twitter.push(getTwitterFeed(item.twitter_id));
+// });
 
 //console.log('promises_twitter first print: ' + JSON.stringify(promises_twitter));
 
@@ -89,10 +89,10 @@ Promise.allSettled(promises_finance).then((feeds) => {
 // }
 
 
-Promise.allSettled(promises_twitter).then((twitterFeeds) => {
-  feedGenModule.twitterFeedGeneration(twitterFeeds);
+// Promise.allSettled(promises_twitter).then((twitterFeeds) => {
+//   feedGenModule.twitterFeedGeneration(twitterFeeds);
 
-});
+// });
 
 
 

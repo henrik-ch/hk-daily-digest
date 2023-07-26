@@ -28,10 +28,7 @@ const navbarListLookup = {
     </li>
     <li class="nav-item">
       <a class="nav-link " href="./finance.html">Finance</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="./twitter.html">Twitter</a>
-  </li>`,
+    </li>`,
   "tech": `<li class="nav-item">
       <a class="nav-link" aria-current="page" href="./growth.html">Growth</a>
     </li>
@@ -43,10 +40,7 @@ const navbarListLookup = {
     </li>
     <li class="nav-item">
       <a class="nav-link " href="./finance.html">Finance</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="./twitter.html">Twitter</a>
-  </li>`,
+    </li>`,
   "news": `<li class="nav-item">
       <a class="nav-link" aria-current="page" href="./growth.html">Growth</a>
     </li>
@@ -58,10 +52,7 @@ const navbarListLookup = {
     </li>
     <li class="nav-item">
       <a class="nav-link " href="./finance.html">Finance</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="./twitter.html">Twitter</a>
-  </li>`,
+    </li>`,
   "finance": `<li class="nav-item">
       <a class="nav-link" aria-current="page" href="./growth.html">Growth</a>
     </li>
@@ -73,10 +64,7 @@ const navbarListLookup = {
     </li>
     <li class="nav-item">
       <a class="nav-link active" href="./finance.html">Finance</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="./twitter.html">Twitter</a>
-  </li>`,
+    </li>`,
   "twitter": `<li class="nav-item">
       <a class="nav-link" aria-current="page" href="./growth.html">Growth</a>
     </li>
@@ -88,10 +76,7 @@ const navbarListLookup = {
     </li>
     <li class="nav-item">
       <a class="nav-link" href="./finance.html">Finance</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link active" href="./twitter.html">Twitter</a>
-  </li>`
+    </li>`
 }
 
 
