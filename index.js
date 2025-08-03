@@ -25,6 +25,15 @@ let axios = require('axios').default;
 
 let my_parser = new Parser();
 
+function parseWithTimeout(url, timeout = 10000) {
+  return Promise.race([
+    my_parser.parseURL(url),
+    new Promise((_, reject) => 
+      setTimeout(() => reject(new Error(`Timeout: ${url} took longer than ${timeout}ms`)), timeout)
+    )
+  ]);
+}
+
 // create the required folders
 fs.mkdir('./dist', () => { });
 
@@ -44,19 +53,31 @@ const my_sources_finance = JSON.parse(fs.readFileSync('sources_finance.json'));
 //const my_sources_twitter = JSON.parse(fs.readFileSync('sources_twitter.json'));
 
 my_sources_growth.items.forEach(function (item) {
-  promises_growth.push(my_parser.parseURL(item.url));
+  promises_growth.push(parseWithTimeout(item.url).catch(err => {
+    console.warn(`Failed to fetch ${item.title || item.url}: ${err.message}`);
+    return Promise.reject(err);
+  }));
 });
 
 my_sources_tech.items.forEach(function (item) {
-  promises_tech.push(my_parser.parseURL(item.url));
+  promises_tech.push(parseWithTimeout(item.url).catch(err => {
+    console.warn(`Failed to fetch ${item.title || item.url}: ${err.message}`);
+    return Promise.reject(err);
+  }));
 });
 
 my_sources_news.items.forEach(function (item) {
-  promises_news.push(my_parser.parseURL(item.url));
+  promises_news.push(parseWithTimeout(item.url).catch(err => {
+    console.warn(`Failed to fetch ${item.title || item.url}: ${err.message}`);
+    return Promise.reject(err);
+  }));
 });
 
 my_sources_finance.items.forEach(function (item) {
-  promises_finance.push(my_parser.parseURL(item.url));
+  promises_finance.push(parseWithTimeout(item.url).catch(err => {
+    console.warn(`Failed to fetch ${item.title || item.url}: ${err.message}`);
+    return Promise.reject(err);
+  }));
 });
 
 // my_sources_twitter.items.forEach(function (item) {
