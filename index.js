@@ -20,6 +20,7 @@ let Parser = require('rss-parser');
 //const templates = require('./templates.js')
 
 const feedGenModule = require('./feedGeneration.js');
+const { scrapeWithTimeout } = require('./webScraper.js');
 
 let axios = require('axios').default;
 
@@ -50,6 +51,7 @@ const my_sources_growth = JSON.parse(fs.readFileSync('sources_growth.json'));
 const my_sources_tech = JSON.parse(fs.readFileSync('sources_tech.json'));
 const my_sources_news = JSON.parse(fs.readFileSync('sources_news.json'));
 const my_sources_finance = JSON.parse(fs.readFileSync('sources_finance.json'));
+const my_sources_scraped = JSON.parse(fs.readFileSync('sources_scraped.json'));
 //const my_sources_twitter = JSON.parse(fs.readFileSync('sources_twitter.json'));
 
 my_sources_growth.items.forEach(function (item) {
@@ -80,6 +82,13 @@ my_sources_finance.items.forEach(function (item) {
   }));
 });
 
+my_sources_scraped.items.forEach(function (item) {
+  promises_tech.push(scrapeWithTimeout(item).catch(err => {
+    console.warn(`Failed to scrape ${item.title || item.url}: ${err.message}`);
+    return Promise.reject(err);
+  }));
+});
+
 // my_sources_twitter.items.forEach(function (item) {
 //   promises_twitter.push(getTwitterFeed(item.twitter_id));
 // });
@@ -102,8 +111,8 @@ Promise.allSettled(promises_news).then((feeds) => {
 
 Promise.allSettled(promises_finance).then((feeds) => {
   feedGenModule.feedGeneration(feeds, 'finance', './dist/finance.html');
-
 });
+
 
 // function checkFulfilled(my_promise) {
 //   return my_promise.status === 'fulfilled';

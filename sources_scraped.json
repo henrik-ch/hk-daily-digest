@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+      "title": "Ecological Building Systems Blog",
+      "url": "https://www.ecologicalbuildingsystems.com/blog",
+      "baseUrl": "https://www.ecologicalbuildingsystems.com",
+      "feedTitle": "Ecological Building Systems Blog",
+      "feedDescription": "Latest posts from Ecological Building Systems",
+      "articleSelector": "article.c-Card",
+      "titleSelector": "h2",
+      "linkSelector": "a[href]",
+      "descriptionSelector": "p"
+    }
+  ]
+}
