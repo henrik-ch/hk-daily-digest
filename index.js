@@ -51,7 +51,7 @@ const my_sources_growth = JSON.parse(fs.readFileSync('sources_growth.json'));
 const my_sources_tech = JSON.parse(fs.readFileSync('sources_tech.json'));
 const my_sources_news = JSON.parse(fs.readFileSync('sources_news.json'));
 const my_sources_finance = JSON.parse(fs.readFileSync('sources_finance.json'));
-const my_sources_scraped = JSON.parse(fs.readFileSync('sources_scraped.json'));
+const my_sources_tech_scraped = JSON.parse(fs.readFileSync('sources_tech_scraped.json'));
 //const my_sources_twitter = JSON.parse(fs.readFileSync('sources_twitter.json'));
 
 my_sources_growth.items.forEach(function (item) {
@@ -82,7 +82,7 @@ my_sources_finance.items.forEach(function (item) {
   }));
 });
 
-my_sources_scraped.items.forEach(function (item) {
+my_sources_tech_scraped.items.forEach(function (item) {
   promises_tech.push(scrapeWithTimeout(item).catch(err => {
     console.warn(`Failed to scrape ${item.title || item.url}: ${err.message}`);
     return Promise.reject(err);
