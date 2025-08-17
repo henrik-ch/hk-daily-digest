@@ -5,6 +5,10 @@
         {
             "title": "Of Dollars and Data",
             "url": "https://ofdollarsanddata.com/feed/"
+        },
+        {
+            "title": "Derek Sivers",
+            "url": "https://sive.rs/en.atom"
         }
     ]
 }
