@@ -9,6 +9,11 @@
         {
             "title": "Derek Sivers",
             "url": "https://sive.rs/en.atom"
+        },
+        {
+            "title": "Leo Babauta",
+            "url": "https://feeds.feedburner.com/zenhabits"
         }
+
     ]
 }
