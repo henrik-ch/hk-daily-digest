@@ -13,7 +13,10 @@
         {
             "title": "Leo Babauta",
             "url": "https://feeds.feedburner.com/zenhabits"
+        },
+        {
+            "title": "Ryan Holiday",
+            "url": "https://ryanholiday.net/feed/"
         }
-
     ]
 }
