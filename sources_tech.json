@@ -10,6 +10,10 @@
             "url": "https://openai.com/news/rss.xml"
         },
         {
+            "title": "Mitchell H",
+            "url": "https://mitchellh.com/feed.xml"
+        },
+        {
             "title": "Solene",
             "url": "https://dataswamp.org/~solene/rss.xml"
         },
