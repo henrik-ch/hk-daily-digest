@@ -10,6 +10,10 @@
             "url": "https://openai.com/news/rss.xml"
         },
         {
+            "title": "Free Code Camp",
+            "url": "https://www.freecodecamp.org/news/rss/"
+        },
+        {
             "title": "Mitchell H",
             "url": "https://mitchellh.com/feed.xml"
         },
