@@ -42,6 +42,10 @@
             "url": "https://ma.tt/feed/"
         },
         {
+            "title": "Michael Stapelberg",
+            "url": "https://michael.stapelberg.ch/feed.xml"
+        },
+        {
             "title": "Wired Top Stories",
             "url": "https://www.wired.com/feed/rss"
         },
