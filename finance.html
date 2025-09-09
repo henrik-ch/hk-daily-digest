@@ -38,6 +38,11 @@
   
     <!-- Custom styles for this template -->
     <link href="navbar-top.css" rel="stylesheet">
+    <style>
+      /* Unread links extra bold; read links thin */
+      #accordionDigest li > a { font-weight: 800; }
+      #accordionDigest li.read > a { font-weight: 300; }
+    </style>
   </head>
   
   <body>
@@ -78,11 +83,17 @@
         <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll,
           this navbar remains in its original position and moves with the rest of the page.</p> -->
   
-  
+        <div class="d-flex justify-content-end align-items-center mb-2">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="toggleSortUnread">
+            <label class="form-check-label" for="toggleSortUnread">Sort by unread</label>
+          </div>
+        </div>
+
         <div class="accordion" id="accordionDigest">
         <div class="accordion-item"><h2 class="accordion-header" id="heading0"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse0" aria-expanded="true" aria-controls="collapse0">petrusko</button></h2><div id="collapse0" class="accordion-collapse collapse " aria-labelledby="heading0"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://petrusko.blogspot.com/2025/09/simplicity-high-yield-b-obligationsfond.html" title="Simplicity High Yield B - Obligationsfond med ca 6% cash utdelning">Simplicity High Yield B - Obligationsfond med ca 6% cash utdelning</a>
         <time datetime="Mon, 08 Sep 2025 20:47:00 +0000" class="ps-2 small">Mon, 08 Sep 2025 20:47:00 </time>
     </li><li class="mb-1">
@@ -114,7 +125,10 @@
         <time datetime="Fri, 29 Aug 2025 09:05:00 +0000" class="ps-2 small">Fri, 29 Aug 2025 09:05:00 </time>
     </li></ul></div></div><div class="accordion-item"><h2 class="accordion-header" id="heading1"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Of Dollars And Data</button></h2><div id="collapse1" class="accordion-collapse collapse " aria-labelledby="heading1"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://ofdollarsanddata.com/the-bar-only-gets-higher/" title="The Bar Only Gets Higher">The Bar Only Gets Higher</a>
+        <time datetime="Tue, 09 Sep 2025 11:50:47 +0000" class="ps-2 small">Tue, 09 Sep 2025 11:50:47 </time>
+    </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://ofdollarsanddata.com/proof-of-wealth/" title="Proof of Wealth">Proof of Wealth</a>
         <time datetime="Tue, 02 Sep 2025 11:30:34 +0000" class="ps-2 small">Tue, 02 Sep 2025 11:30:34 </time>
     </li><li class="mb-1">
@@ -141,12 +155,9 @@
     </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://ofdollarsanddata.com/how-to-make-more-without-working-more/" title="How to Make More Without Working More">How to Make More Without Working More</a>
         <time datetime="Mon, 07 Jul 2025 15:30:50 +0000" class="ps-2 small">Mon, 07 Jul 2025 15:30:50 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://ofdollarsanddata.com/why-financial-independence-is-overrated/" title="Why Financial Independence is Overrated">Why Financial Independence is Overrated</a>
-        <time datetime="Tue, 01 Jul 2025 11:30:06 +0000" class="ps-2 small">Tue, 01 Jul 2025 11:30:06 </time>
     </li></ul></div></div><div class="accordion-item"><h2 class="accordion-header" id="heading2"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">Collaborative Fund</button></h2><div id="collapse2" class="accordion-collapse collapse " aria-labelledby="heading2"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://collabfund.com/blog/my-new-book-the-art-of-spending-money/" title="My New Book: The Art of Spending Money">My New Book: The Art of Spending Money</a>
         <time datetime="Wed, 03 Sep 2025 13:59:00 -0400" class="ps-2 small">Wed, 03 Sep 2025 13:59:00 -0400</time>
     </li><li class="mb-1">
@@ -185,6 +196,210 @@
     </main>
   
     <script src="./bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      (function() {
+        function safeGet(key) {
+          try {
+            return localStorage.getItem(key);
+          } catch (_) { return null; }
+        }
+
+        function safeSet(key, value) {
+          try {
+            localStorage.setItem(key, value);
+          } catch (_) { /* ignore */ }
+        }
+
+        function loadStore() {
+          const raw = safeGet('visitedLinks');
+          if (!raw) return {};
+          try { return JSON.parse(raw) || {}; } catch { return {}; }
+        }
+
+        function saveStore(store) {
+          safeSet('visitedLinks', JSON.stringify(store));
+        }
+
+        function normalize(href) {
+          try { return new URL(href, window.location.href).toString(); }
+          catch { return href; }
+        }
+
+        function formatUTC(ts) {
+          try {
+            const d = new Date(ts);
+            if (isNaN(d)) return '';
+            const iso = d.toISOString(); // YYYY-MM-DDTHH:mm:ss.sssZ
+            return iso.slice(0,16).replace('T',' ') + ' GMT';
+          } catch { return ''; }
+        }
+
+        function markAsRead(anchor, timestamp) {
+          const li = anchor.closest('li');
+          if (li) li.classList.add('read');
+          if (!anchor.dataset.originalTitle) {
+            anchor.dataset.originalTitle = anchor.getAttribute('title') || '';
+          }
+          const formatted = formatUTC(timestamp);
+          if (formatted) {
+            anchor.setAttribute('title', 'Last visited: ' + formatted);
+          }
+        }
+
+        function unmarkAsRead(anchor) {
+          const li = anchor.closest('li');
+          if (li) li.classList.remove('read');
+          if (anchor.dataset.originalTitle !== undefined) {
+            anchor.setAttribute('title', anchor.dataset.originalTitle);
+          } else {
+            anchor.removeAttribute('title');
+          }
+        }
+
+        function applyReadStates() {
+          const store = loadStore();
+          const container = document.getElementById('accordionDigest');
+          if (!container) return;
+          const anchors = container.querySelectorAll('a[href]');
+          anchors.forEach(a => {
+            const key = normalize(a.href);
+            if (store[key]) {
+              markAsRead(a, store[key]);
+            }
+          });
+        }
+
+        function recordVisit(anchor) {
+          const key = normalize(anchor.href);
+          const now = Date.now();
+          const store = loadStore();
+          store[key] = now;
+          saveStore(store);
+          markAsRead(anchor, now);
+        }
+
+        function setupHandlers() {
+          const container = document.getElementById('accordionDigest');
+          if (!container) return;
+
+          // Handle per-accordion buttons
+          container.addEventListener('click', function(e) {
+            const btn = e.target.closest('[data-action]');
+            if (!btn || !container.contains(btn)) return;
+            const item = btn.closest('.accordion-item');
+            if (!item) return;
+            if (btn.dataset.action === 'mark-all-read') {
+              const anchors = item.querySelectorAll('a[href]');
+              const now = Date.now();
+              const store = loadStore();
+              anchors.forEach(a => {
+                const key = normalize(a.href);
+                store[key] = now;
+                markAsRead(a, now);
+              });
+              saveStore(store);
+            } else if (btn.dataset.action === 'reset-read-state') {
+              const anchors = item.querySelectorAll('a[href]');
+              const store = loadStore();
+              anchors.forEach(a => {
+                const key = normalize(a.href);
+                delete store[key];
+                unmarkAsRead(a);
+              });
+              saveStore(store);
+            }
+          });
+
+          // Sorting toggle
+          const sortToggle = document.getElementById('toggleSortUnread');
+          function getSectionTitle(item){
+            const btn = item.querySelector('.accordion-header .accordion-button');
+            return btn ? btn.textContent.trim() : '';
+          }
+          function getUnreadCount(item, store){
+            const anchors = item.querySelectorAll('a[href]');
+            let unread = 0;
+            anchors.forEach(a => { if (!store[normalize(a.href)]) unread++; });
+            return unread;
+          }
+          function assignOriginalIndices(){
+            const items = Array.from(container.querySelectorAll('.accordion-item'));
+            items.forEach((it, idx) => { if (!it.dataset.originalIndex) it.dataset.originalIndex = String(idx); });
+          }
+          function sortByUnread(){
+            const store = loadStore();
+            const items = Array.from(container.querySelectorAll('.accordion-item'));
+            items.sort((a, b) => {
+              const ca = getUnreadCount(a, store);
+              const cb = getUnreadCount(b, store);
+              if (cb !== ca) return cb - ca; // desc unread
+              return getSectionTitle(a).localeCompare(getSectionTitle(b));
+            });
+            items.forEach(it => container.appendChild(it));
+          }
+          function restoreOriginalOrder(){
+            const items = Array.from(container.querySelectorAll('.accordion-item'));
+            items.sort((a, b) => (parseInt(a.dataset.originalIndex||'0',10) - parseInt(b.dataset.originalIndex||'0',10)));
+            items.forEach(it => container.appendChild(it));
+          }
+          function resortIfEnabled(){
+            if (sortToggle && sortToggle.checked) sortByUnread();
+          }
+          assignOriginalIndices();
+          if (sortToggle) {
+            // Optional: remember preference per-page
+            const prefKey = 'sortByUnread:' + location.pathname;
+            const pref = safeGet(prefKey);
+            if (pref === 'on') sortToggle.checked = true;
+            sortToggle.addEventListener('change', function(){
+              if (sortToggle.checked) {
+                sortByUnread();
+                safeSet(prefKey, 'on');
+              } else {
+                restoreOriginalOrder();
+                safeSet(prefKey, 'off');
+              }
+            });
+          }
+
+          function handleEvent(e) {
+            const a = e.target.closest('a[href]');
+            if (!a || !container.contains(a)) return;
+            // Record on left click or middle click without blocking navigation
+            if (e.type === 'click' && e.button === 0) {
+              recordVisit(a);
+              resortIfEnabled();
+            } else if (e.type === 'auxclick' && e.button === 1) {
+              recordVisit(a);
+              resortIfEnabled();
+            }
+          }
+
+          container.addEventListener('click', handleEvent);
+          container.addEventListener('auxclick', handleEvent);
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function(){
+            applyReadStates();
+            setupHandlers();
+            // If toggle is on (from pref), apply sort
+            const sortToggle = document.getElementById('toggleSortUnread');
+            if (sortToggle && sortToggle.checked) {
+              const container = document.getElementById('accordionDigest');
+              if (container) {
+                // Need functions defined in setupHandlers scope; quickly recompute here
+                const items = Array.from(container.querySelectorAll('.accordion-item'));
+                items.forEach((it, idx) => { if (!it.dataset.originalIndex) it.dataset.originalIndex = String(idx); });
+              }
+            }
+          });
+        } else {
+          applyReadStates();
+          setupHandlers();
+        }
+      })();
+    </script>
   </body>
   
   </html>

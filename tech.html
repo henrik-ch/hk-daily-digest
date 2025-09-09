@@ -38,6 +38,11 @@
   
     <!-- Custom styles for this template -->
     <link href="navbar-top.css" rel="stylesheet">
+    <style>
+      /* Unread links extra bold; read links thin */
+      #accordionDigest li > a { font-weight: 800; }
+      #accordionDigest li.read > a { font-weight: 300; }
+    </style>
   </head>
   
   <body>
@@ -78,13 +83,28 @@
         <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll,
           this navbar remains in its original position and moves with the rest of the page.</p> -->
   
-  
+        <div class="d-flex justify-content-end align-items-center mb-2">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="toggleSortUnread">
+            <label class="form-check-label" for="toggleSortUnread">Sort by unread</label>
+          </div>
+        </div>
+
         <div class="accordion" id="accordionDigest">
         <div class="accordion-item"><h2 class="accordion-header" id="heading0"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse0" aria-expanded="true" aria-controls="collapse0">Hacker News: Best</button></h2><div id="collapse0" class="accordion-collapse collapse " aria-labelledby="heading0"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://www.governor.state.nm.us/2025/09/08/new-mexico-is-first-state-in-nation-to-offer-universal-child-care/" title="New Mexico is first state in US to offer universal child care">New Mexico is first state in US to offer universal child care</a>
+        <time datetime="Tue, 09 Sep 2025 14:25:16 +0000" class="ps-2 small">Tue, 09 Sep 2025 14:25:16 </time>
+    </li><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://mistral.ai/news/mistral-ai-raises-1-7-b-to-accelerate-technological-progress-with-ai" title="Mistral AI raises 1.7B€, enters strategic partnership with ASML">Mistral AI raises 1.7B€, enters strategic partnership with ASML</a>
+        <time datetime="Tue, 09 Sep 2025 06:10:15 +0000" class="ps-2 small">Tue, 09 Sep 2025 06:10:15 </time>
+    </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://www.privacyguides.org/articles/2025/09/08/chat-control-must-be-stopped/" title="Chat Control Must Be Stopped">Chat Control Must Be Stopped</a>
         <time datetime="Mon, 08 Sep 2025 20:07:22 +0000" class="ps-2 small">Mon, 08 Sep 2025 20:07:22 </time>
+    </li><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://stopa.io/post/297" title="iPhone dumbphone">iPhone dumbphone</a>
+        <time datetime="Mon, 08 Sep 2025 17:33:44 +0000" class="ps-2 small">Mon, 08 Sep 2025 17:33:44 </time>
     </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://signal.org/blog/introducing-secure-backups/" title="Signal Secure Backups">Signal Secure Backups</a>
         <time datetime="Mon, 08 Sep 2025 16:43:39 +0000" class="ps-2 small">Mon, 08 Sep 2025 16:43:39 </time>
@@ -103,18 +123,12 @@
     </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://mitchivin.com/" title="Show HN: I recreated Windows XP as my portfolio">Show HN: I recreated Windows XP as my portfolio</a>
         <time datetime="Sun, 07 Sep 2025 01:44:19 +0000" class="ps-2 small">Sun, 07 Sep 2025 01:44:19 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://gabrielweinberg.com/p/ai-surveillance-should-be-banned" title="AI surveillance should be banned while there is still time">AI surveillance should be banned while there is still time</a>
-        <time datetime="Sat, 06 Sep 2025 13:52:34 +0000" class="ps-2 small">Sat, 06 Sep 2025 13:52:34 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://lucumr.pocoo.org/2025/9/4/996/" title="996">996</a>
-        <time datetime="Sat, 06 Sep 2025 13:20:57 +0000" class="ps-2 small">Sat, 06 Sep 2025 13:20:57 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.nytimes.com/2025/09/05/technology/anthropic-settlement-copyright-ai.html?unlocked_article_code=1.jk8.bTTt.Zir9wmtPaTp2&smid=url-share" title="Anthropic agrees to pay $1.5B to settle lawsuit with book authors">Anthropic agrees to pay $1.5B to settle lawsuit with book authors</a>
-        <time datetime="Fri, 05 Sep 2025 19:52:45 +0000" class="ps-2 small">Fri, 05 Sep 2025 19:52:45 </time>
     </li></ul></div></div><div class="accordion-item"><h2 class="accordion-header" id="heading1"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">OpenAI News</button></h2><div id="collapse1" class="accordion-collapse collapse " aria-labelledby="heading1"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://openai.com/index/safetykit" title="Shipping smarter agents with every new model">Shipping smarter agents with every new model</a>
+        <time datetime="Tue, 09 Sep 2025 10:00:00 GMT" class="ps-2 small">Tue, 09 Sep 2025 10:00:00 GMT</time>
+    </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://openai.com/index/people-first-ai-fund" title="A People-First AI Fund: $50M to support nonprofits">A People-First AI Fund: $50M to support nonprofits</a>
         <time datetime="Mon, 08 Sep 2025 14:00:00 GMT" class="ps-2 small">Mon, 08 Sep 2025 14:00:00 GMT</time>
     </li><li class="mb-1">
@@ -141,14 +155,25 @@
     </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://openai.com/index/supporting-nonprofit-and-community-innovation" title="Supporting nonprofit and community innovation">Supporting nonprofit and community innovation</a>
         <time datetime="Thu, 28 Aug 2025 05:00:00 GMT" class="ps-2 small">Thu, 28 Aug 2025 05:00:00 GMT</time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://openai.com/index/collective-alignment-aug-2025-updates" title="Collective alignment: public input on our Model Spec">Collective alignment: public input on our Model Spec</a>
-        <time datetime="Wed, 27 Aug 2025 13:00:00 GMT" class="ps-2 small">Wed, 27 Aug 2025 13:00:00 GMT</time>
     </li></ul></div></div><div class="accordion-item"><h2 class="accordion-header" id="heading2"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
              freeCodeCamp Programming Tutorials: Python, JavaScript, Git & More 
         </button></h2><div id="collapse2" class="accordion-collapse collapse " aria-labelledby="heading2"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://www.freecodecamp.org/news/how-to-store-data-locally-using-hive-in-flutter/" title="
+                     How to Store Data Locally Using Hive in Flutter 
+                ">
+                     How to Store Data Locally Using Hive in Flutter 
+                </a>
+        <time datetime="Tue, 09 Sep 2025 14:36:07 +0000" class="ps-2 small">Tue, 09 Sep 2025 14:36:07 </time>
+    </li><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://www.freecodecamp.org/news/how-to-automate-api-documentation-updates-with-github-actions-and-openapi-specifications/" title="
+                     How to Automate API Documentation Updates with GitHub Actions and OpenAPI Specifications 
+                ">
+                     How to Automate API Documentation Updates with GitHub Actions and OpenAPI Specifications 
+                </a>
+        <time datetime="Tue, 09 Sep 2025 14:28:26 +0000" class="ps-2 small">Tue, 09 Sep 2025 14:28:26 </time>
+    </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://www.freecodecamp.org/news/build-production-ready-web-apps-with-hono/" title="
                      How to Build Production-Ready Web Apps with the Hono Framework: A Deep Dive 
                 ">
@@ -204,23 +229,9 @@
                      How to Build an Upload Service in Flutter Web with Firebase 
                 </a>
         <time datetime="Fri, 05 Sep 2025 15:22:25 +0000" class="ps-2 small">Fri, 05 Sep 2025 15:22:25 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.freecodecamp.org/news/how-to-build-an-ai-study-planner-agent-using-gemini-in-python/" title="
-                     How to Build an AI Study Planner Agent using Gemini in Python 
-                ">
-                     How to Build an AI Study Planner Agent using Gemini in Python 
-                </a>
-        <time datetime="Fri, 05 Sep 2025 15:19:14 +0000" class="ps-2 small">Fri, 05 Sep 2025 15:19:14 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.freecodecamp.org/news/introducing-freecodecamp-daily-python-and-javascript-challenges-solve-a-new-programming-puzzle-every-day/" title="
-                     Introducing freeCodeCamp Daily Python and JavaScript Challenges – Solve a New Programming Puzzle Every Day 
-                ">
-                     Introducing freeCodeCamp Daily Python and JavaScript Challenges – Solve a New Programming Puzzle Every Day 
-                </a>
-        <time datetime="Fri, 05 Sep 2025 15:01:43 +0000" class="ps-2 small">Fri, 05 Sep 2025 15:01:43 </time>
     </li></ul></div></div><div class="accordion-item"><h2 class="accordion-header" id="heading3"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">Mitchell Hashimoto</button></h2><div id="collapse3" class="accordion-collapse collapse " aria-labelledby="heading3"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://mitchellh.com/writing/feel-it" title="You Have to Feel It">You Have to Feel It</a>
         <time datetime="Sat, 30 Aug 2025 00:00:00 GMT" class="ps-2 small">Sat, 30 Aug 2025 00:00:00 GMT</time>
     </li><li class="mb-1">
@@ -252,7 +263,7 @@
         <time datetime="Thu, 12 Sep 2024 00:00:00 GMT" class="ps-2 small">Thu, 12 Sep 2024 00:00:00 GMT</time>
     </li></ul></div></div><div class="accordion-item"><h2 class="accordion-header" id="heading4"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">Solene'%</button></h2><div id="collapse4" class="accordion-collapse collapse " aria-labelledby="heading4"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://dataswamp.org/~solene/2025-09-05-hardware-review-logitech-lift.html" title="Hardware review: ergonomic mouse Logitech Lift">Hardware review: ergonomic mouse Logitech Lift</a>
         <time datetime="Fri, 05 Sep 2025 00:00:00 GMT" class="ps-2 small">Fri, 05 Sep 2025 00:00:00 GMT</time>
     </li><li class="mb-1">
@@ -284,7 +295,7 @@
         <time datetime="Wed, 11 Dec 2024 00:00:00 GMT" class="ps-2 small">Wed, 11 Dec 2024 00:00:00 GMT</time>
     </li></ul></div></div><div class="accordion-item"><h2 class="accordion-header" id="heading5"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse5" aria-expanded="true" aria-controls="collapse5">jade's www site</button></h2><div id="collapse5" class="accordion-collapse collapse " aria-labelledby="heading5"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://jade.fyi/blog/use-nix-less/" title="You don't have to use Nix to manage your dotfiles">You don't have to use Nix to manage your dotfiles</a>
         <time datetime="Sat, 05 Jul 2025 00:00:00 +0000" class="ps-2 small">Sat, 05 Jul 2025 00:00:00 </time>
     </li><li class="mb-1">
@@ -316,30 +327,51 @@
         <time datetime="Thu, 19 Oct 2023 00:00:00 +0000" class="ps-2 small">Thu, 19 Oct 2023 00:00:00 </time>
     </li></ul></div></div><div class="accordion-item"><h2 class="accordion-header" id="heading6"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse6" aria-expanded="true" aria-controls="collapse6">Hackaday</button></h2><div id="collapse6" class="accordion-collapse collapse " aria-labelledby="heading6"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://hackaday.com/2025/09/09/this-ouija-business-card-helps-you-speak-to-tiny-llamas/" title="This Ouija Business Card Helps You Speak to Tiny Llamas">This Ouija Business Card Helps You Speak to Tiny Llamas</a>
+        <time datetime="Tue, 09 Sep 2025 18:30:40 +0000" class="ps-2 small">Tue, 09 Sep 2025 18:30:40 </time>
+    </li><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://hackaday.com/2025/09/09/the-android-linux-commander/" title="The Android Linux Commander">The Android Linux Commander</a>
+        <time datetime="Tue, 09 Sep 2025 17:00:11 +0000" class="ps-2 small">Tue, 09 Sep 2025 17:00:11 </time>
+    </li><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://hackaday.com/2025/09/09/give-your-twist-connections-some-strength/" title="Give Your Twist Connections Some Strength">Give Your Twist Connections Some Strength</a>
+        <time datetime="Tue, 09 Sep 2025 15:30:31 +0000" class="ps-2 small">Tue, 09 Sep 2025 15:30:31 </time>
+    </li><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://hackaday.com/2025/09/09/freecad-foray-from-brick-to-shell/" title="FreeCAD Foray: From Brick To Shell">FreeCAD Foray: From Brick To Shell</a>
+        <time datetime="Tue, 09 Sep 2025 14:00:36 +0000" class="ps-2 small">Tue, 09 Sep 2025 14:00:36 </time>
+    </li><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://hackaday.com/2025/09/09/further-adventures-in-colorimeter-hacking/" title="Further Adventures in Colorimeter Hacking">Further Adventures in Colorimeter Hacking</a>
+        <time datetime="Tue, 09 Sep 2025 11:00:08 +0000" class="ps-2 small">Tue, 09 Sep 2025 11:00:08 </time>
+    </li><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://hackaday.com/2025/09/09/turning-a-2-ikea-lantern-into-a-stylish-enclosure/" title="Turning a $2 IKEA Lantern into a Stylish Enclosure">Turning a $2 IKEA Lantern into a Stylish Enclosure</a>
+        <time datetime="Tue, 09 Sep 2025 08:00:40 +0000" class="ps-2 small">Tue, 09 Sep 2025 08:00:40 </time>
+    </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://hackaday.com/2025/09/08/modos-is-open-hardware-easy-on-the-eyes/" title="Modos is Open Hardware, Easy on the Eyes">Modos is Open Hardware, Easy on the Eyes</a>
         <time datetime="Tue, 09 Sep 2025 05:00:48 +0000" class="ps-2 small">Tue, 09 Sep 2025 05:00:48 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://hackaday.com/2025/09/08/retrotechtacular-the-noisy-home-computer-from-1967/" title="Retrotechtacular: The Noisy Home Computer from 1967">Retrotechtacular: The Noisy Home Computer from 1967</a>
-        <time datetime="Tue, 09 Sep 2025 02:00:56 +0000" class="ps-2 small">Tue, 09 Sep 2025 02:00:56 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://hackaday.com/2025/09/08/how-to-use-the-at24c32-eeprom-for-4kb-external-memory-for-microcontrollers/" title="How to Use the AT24C32 EEPROM for 4KB External Memory for Microcontrollers">How to Use the AT24C32 EEPROM for 4KB External Memory for Microcontrollers</a>
-        <time datetime="Mon, 08 Sep 2025 23:00:51 +0000" class="ps-2 small">Mon, 08 Sep 2025 23:00:51 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://hackaday.com/2025/09/08/the-incrediplotter-voice-controlled-plotter-from-repurposed-printer/" title="The Incrediplotter: Voice Controlled Plotter from Repurposed Printer">The Incrediplotter: Voice Controlled Plotter from Repurposed Printer</a>
-        <time datetime="Mon, 08 Sep 2025 20:00:47 +0000" class="ps-2 small">Mon, 08 Sep 2025 20:00:47 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://hackaday.com/2025/09/08/a-love-letter-to-internet-relay-chat/" title="A Love Letter to Internet Relay Chat">A Love Letter to Internet Relay Chat</a>
-        <time datetime="Mon, 08 Sep 2025 18:30:10 +0000" class="ps-2 small">Mon, 08 Sep 2025 18:30:10 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://hackaday.com/2025/09/08/ore-formation-processes-part-two-hydrothermal-boogaloo/" title="Ore Formation Processes, Part Two: Hydrothermal Boogaloo">Ore Formation Processes, Part Two: Hydrothermal Boogaloo</a>
-        <time datetime="Mon, 08 Sep 2025 17:00:43 +0000" class="ps-2 small">Mon, 08 Sep 2025 17:00:43 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://hackaday.com/2025/09/08/making-an-ultralight-helicopter/" title="Making an Ultralight Helicopter">Making an Ultralight Helicopter</a>
-        <time datetime="Mon, 08 Sep 2025 15:30:00 +0000" class="ps-2 small">Mon, 08 Sep 2025 15:30:00 </time>
     </li></ul></div></div><div class="accordion-item"><h2 class="accordion-header" id="heading7"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse7" aria-expanded="true" aria-controls="collapse7">Electrek</button></h2><div id="collapse7" class="accordion-collapse collapse " aria-labelledby="heading7"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/09/ford-hints-something-big-is-coming-after-wiping-its-entire-instagram/" title="Ford hints that something big is coming after wiping its entire Instagram">Ford hints that something big is coming after wiping its entire Instagram</a>
+        <time datetime="Tue, 09 Sep 2025 18:18:45 +0000" class="ps-2 small">Tue, 09 Sep 2025 18:18:45 </time>
+    </li><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/09/ecoflow-home-backup-sale-from-90-anker-solix-more/" title="EcoFlow power stations up to 62% off + bonus savings from $90, Anker SOLIX EverFrost 2 coolers start from $599 low, more">EcoFlow power stations up to 62% off + bonus savings from $90, Anker SOLIX EverFrost 2 coolers start from $599 low, more</a>
+        <time datetime="Tue, 09 Sep 2025 18:02:17 +0000" class="ps-2 small">Tue, 09 Sep 2025 18:02:17 </time>
+    </li><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/09/volkswagen-id-4-gains-new-black-package-available-for-45k/" title="The Volkswagen ID.4 looks even better in the Black Package, now available for $45K">The Volkswagen ID.4 looks even better in the Black Package, now available for $45K</a>
+        <time datetime="Tue, 09 Sep 2025 16:47:52 +0000" class="ps-2 small">Tue, 09 Sep 2025 16:47:52 </time>
+    </li><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/09/hyundai-ioniq-3-is-coming-and-this-ev-concept-is-our-first-look/" title="The Hyundai IONIQ 3 is coming soon and this daring EV concept is our first look">The Hyundai IONIQ 3 is coming soon and this daring EV concept is our first look</a>
+        <time datetime="Tue, 09 Sep 2025 15:19:11 +0000" class="ps-2 small">Tue, 09 Sep 2025 15:19:11 </time>
+    </li><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/09/dahon-marks-huge-ipo-as-investors-jump-for-leading-folding-bike-maker/" title="Dahon marks huge IPO as investors jump for leading folding bike maker">Dahon marks huge IPO as investors jump for leading folding bike maker</a>
+        <time datetime="Tue, 09 Sep 2025 14:22:37 +0000" class="ps-2 small">Tue, 09 Sep 2025 14:22:37 </time>
+    </li><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/09/mercedes-eqs-with-solid-state-ev-batteries-drove-750-miles/" title="A Mercedes EQS with solid-state batteries drove 750 miles and still had range to spare">A Mercedes EQS with solid-state batteries drove 750 miles and still had range to spare</a>
+        <time datetime="Tue, 09 Sep 2025 13:48:52 +0000" class="ps-2 small">Tue, 09 Sep 2025 13:48:52 </time>
+    </li><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/09/tesla-gives-up-on-cybertruck-wireless-charging/" title="Tesla gives up on Cybertruck wireless charging">Tesla gives up on Cybertruck wireless charging</a>
+        <time datetime="Tue, 09 Sep 2025 10:00:00 +0000" class="ps-2 small">Tue, 09 Sep 2025 10:00:00 </time>
+    </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/08/tesla-unveils-megablock-megapack-3/" title="Tesla unveils Megablock and Megapack 3: more power and energy deployed faster">Tesla unveils Megablock and Megapack 3: more power and energy deployed faster</a>
         <time datetime="Tue, 09 Sep 2025 03:54:53 +0000" class="ps-2 small">Tue, 09 Sep 2025 03:54:53 </time>
     </li><li class="mb-1">
@@ -348,62 +380,41 @@
     </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/08/tesla-market-share-drops-mercedes-bmw-and-vw-drop-all-new-evs/" title="Tesla market share drops, Mercedes, BMW, and VW drop all-new EVs">Tesla market share drops, Mercedes, BMW, and VW drop all-new EVs</a>
         <time datetime="Mon, 08 Sep 2025 21:26:14 +0000" class="ps-2 small">Mon, 08 Sep 2025 21:26:14 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/08/tesla-unveil-next-gen-megapack-today-competition-intensifies/" title="Tesla is expected to unveil next-gen Megapack today as competition intensifies">Tesla is expected to unveil next-gen Megapack today as competition intensifies</a>
-        <time datetime="Mon, 08 Sep 2025 20:15:12 +0000" class="ps-2 small">Mon, 08 Sep 2025 20:15:12 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/08/hyundais-ev-plant-raided-by-ice-hundreds-arrested-update/" title="Hyundai’s EV plant was just raided by ICE, ‘hundreds’ taken into custody [Live Updates]">Hyundai’s EV plant was just raided by ICE, ‘hundreds’ taken into custody [Live Updates]</a>
-        <time datetime="Mon, 08 Sep 2025 20:00:30 +0000" class="ps-2 small">Mon, 08 Sep 2025 20:00:30 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/08/mercedes-benz-alpitronic-to-roll-out-600-kw-fast-charging-in-2026/" title="Mercedes-Benz + Alpitronic to roll out 600 kW fast charging in 2026">Mercedes-Benz + Alpitronic to roll out 600 kW fast charging in 2026</a>
-        <time datetime="Mon, 08 Sep 2025 18:33:43 +0000" class="ps-2 small">Mon, 08 Sep 2025 18:33:43 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/08/volkswagen-id-4-getting-a-makeover-sneak-peek/" title="The Volkswagen ID.4 is about to get a massive makeover: Here’s a sneak peek">The Volkswagen ID.4 is about to get a massive makeover: Here’s a sneak peek</a>
-        <time datetime="Mon, 08 Sep 2025 18:18:45 +0000" class="ps-2 small">Mon, 08 Sep 2025 18:18:45 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/08/solix-c1000-gen-2-launch-rad-power-ecoflow-more/" title="Anker SOLIX C1000 Gen 2 station launches from $429, Rad Power RadWagon 4 extra battery bundle $649 off, EcoFlow flash sale, more">Anker SOLIX C1000 Gen 2 station launches from $429, Rad Power RadWagon 4 extra battery bundle $649 off, EcoFlow flash sale, more</a>
-        <time datetime="Mon, 08 Sep 2025 18:00:00 +0000" class="ps-2 small">Mon, 08 Sep 2025 18:00:00 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/08/polestar-5-gt-available-order-performance-specs/" title="The Polestar 5 GT is available to order now and we finally have performance specs">The Polestar 5 GT is available to order now and we finally have performance specs</a>
-        <time datetime="Mon, 08 Sep 2025 18:00:00 +0000" class="ps-2 small">Mon, 08 Sep 2025 18:00:00 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://electrek.co/2025/09/08/catl-launches-worlds-first-lfp-battery-with-470-miles-range/" title="CATL launches the world’s first LFP battery with 470+ miles range and 10-minute charging">CATL launches the world’s first LFP battery with 470+ miles range and 10-minute charging</a>
-        <time datetime="Mon, 08 Sep 2025 17:18:12 +0000" class="ps-2 small">Mon, 08 Sep 2025 17:18:12 </time>
     </li></ul></div></div><div class="accordion-item"><h2 class="accordion-header" id="heading8"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse8" aria-expanded="true" aria-controls="collapse8">The Verge</button></h2><div id="collapse8" class="accordion-collapse collapse " aria-labelledby="heading8"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.theverge.com/news/774142/amd-fsr-4-3-1-games-support-upscaling" title="AMD&#8217;s AI-powered FSR 4 upscaling is now available in most FSR 3.1 games">AMD&#8217;s AI-powered FSR 4 upscaling is now available in most FSR 3.1 games</a>
-        <time datetime="2025-09-08T22:10:10.000Z" class="ps-2 small">2025-09-08 22:10:10</time>
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://www.theverge.com/apple-event/774963/apple-september-launch-event-ai-apple-intelligence" title="Apple barely talked about AI at its big iPhone 17 event">Apple barely talked about AI at its big iPhone 17 event</a>
+        <time datetime="2025-09-09T19:15:02.000Z" class="ps-2 small">2025-09-09 19:15:02</time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.theverge.com/news/774077/nintendo-switch-modder-ryan-daley-lawsuit" title="Nintendo Switch modder ordered to pay $2 million in piracy lawsuit">Nintendo Switch modder ordered to pay $2 million in piracy lawsuit</a>
-        <time datetime="2025-09-08T20:40:51.000Z" class="ps-2 small">2025-09-08 20:40:51</time>
+        <a rel="noopener" target="_blank" href="https://www.theverge.com/news/774941/apple-iphone-17-n1-wi-fi-bluetooth-thread-networking-chip" title="The iPhone 17 comes with Apple’s new in-house networking chip">The iPhone 17 comes with Apple’s new in-house networking chip</a>
+        <time datetime="2025-09-09T19:10:19.000Z" class="ps-2 small">2025-09-09 19:10:19</time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.theverge.com/21420196/best-budget-smartphone-cheap" title="The best budget smartphone you can buy">The best budget smartphone you can buy</a>
-        <time datetime="2025-09-08T19:20:11.000Z" class="ps-2 small">2025-09-08 19:20:11</time>
+        <a rel="noopener" target="_blank" href="https://www.theverge.com/news/774515/apples-new-magsafe-battery-is-only-designed-for-the-new-iphone-air" title="Apple&#8217;s new MagSafe battery is only designed for the new iPhone Air">Apple&#8217;s new MagSafe battery is only designed for the new iPhone Air</a>
+        <time datetime="2025-09-09T18:59:57.000Z" class="ps-2 small">2025-09-09 18:59:57</time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.theverge.com/ai-artificial-intelligence/774008/gemini-audio-new-languages-notebooklm-reports" title="Gemini app finally expands to audio files">Gemini app finally expands to audio files</a>
-        <time datetime="2025-09-08T19:14:28.000Z" class="ps-2 small">2025-09-08 19:14:28</time>
+        <a rel="noopener" target="_blank" href="https://www.theverge.com/hands-on/773039/hands-on-with-new-apple-watches" title="Hands-on with all the new Apple Watches: Series 11, Ultra 3, and SE 3">Hands-on with all the new Apple Watches: Series 11, Ultra 3, and SE 3</a>
+        <time datetime="2025-09-09T18:54:29.000Z" class="ps-2 small">2025-09-09 18:54:29</time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.theverge.com/news/774018/signal-encrypted-secure-backups-paid-feature-beta" title="Signal&#8217;s first paid feature adds encrypted media and message backups">Signal&#8217;s first paid feature adds encrypted media and message backups</a>
-        <time datetime="2025-09-08T18:59:40.000Z" class="ps-2 small">2025-09-08 18:59:40</time>
+        <a rel="noopener" target="_blank" href="https://www.theverge.com/news/774502/apple-biggest-announcements-fall-event-iphone-17-air-pro-max-watch-series-ultra-se-airpods" title="The eight biggest announcements from Apple’s iPhone Air event">The eight biggest announcements from Apple’s iPhone Air event</a>
+        <time datetime="2025-09-09T18:47:56.000Z" class="ps-2 small">2025-09-09 18:47:56</time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.theverge.com/electric-cars/773730/polestar-5-ev-horsepower-range-speed-specs" title="The Polestar 5 is an 884hp fastback sedan that should make Porsche nervous">The Polestar 5 is an 884hp fastback sedan that should make Porsche nervous</a>
-        <time datetime="2025-09-08T18:00:00.000Z" class="ps-2 small">2025-09-08 18:00:00</time>
+        <a rel="noopener" target="_blank" href="https://www.theverge.com/news/774547/apple-recycled-material-titanium-iphone-watch" title="Apple’s using more recycled materials in its iPhones and watches">Apple’s using more recycled materials in its iPhones and watches</a>
+        <time datetime="2025-09-09T18:32:37.000Z" class="ps-2 small">2025-09-09 18:32:37</time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.theverge.com/news/773937/nova-launcher-founder-left-kevin-barry-branch-open-source-android" title="Nova Launcher’s founder and sole developer has left">Nova Launcher’s founder and sole developer has left</a>
-        <time datetime="2025-09-08T17:45:53.000Z" class="ps-2 small">2025-09-08 17:45:53</time>
+        <a rel="noopener" target="_blank" href="https://www.theverge.com/tech/773082/iphone-17-pro-max-hands-on-apple-event-photos-price-features" title="Our first look at the iPhone 17 Pro and 17 Pro Max">Our first look at the iPhone 17 Pro and 17 Pro Max</a>
+        <time datetime="2025-09-09T18:28:56.000Z" class="ps-2 small">2025-09-09 18:28:56</time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.theverge.com/news/769573/ifa-2025-smart-home-lights-power-bank-robot-vacuum-ai-headphones" title="The best stuff announced at IFA">The best stuff announced at IFA</a>
-        <time datetime="2025-09-08T17:14:01.000Z" class="ps-2 small">2025-09-08 17:14:01</time>
+        <a rel="noopener" target="_blank" href="https://www.theverge.com/tech/773244/apple-iphone-air-hands-on-photos-awe-dropping" title="iPhone Air hands-on">iPhone Air hands-on</a>
+        <time datetime="2025-09-09T18:24:40.000Z" class="ps-2 small">2025-09-09 18:24:40</time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.theverge.com/news/773928/google-open-web-rapid-decline" title="Google admits the open web is in ‘rapid decline’">Google admits the open web is in ‘rapid decline’</a>
-        <time datetime="2025-09-08T16:50:20.000Z" class="ps-2 small">2025-09-08 16:50:20</time>
+        <a rel="noopener" target="_blank" href="https://www.theverge.com/news/772968/apple-watch-watchos-26-release-date-upgrade-september-15" title="Apple will launch watchOS 26 on September 15th">Apple will launch watchOS 26 on September 15th</a>
+        <time datetime="2025-09-09T18:18:50.000Z" class="ps-2 small">2025-09-09 18:18:50</time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.theverge.com/policy/773821/meta-virtual-reality-horizon-worlds-youth-safety-research-whistleblower" title="Meta curbed research about VR safety risks to kids, whistleblowers say">Meta curbed research about VR safety risks to kids, whistleblowers say</a>
-        <time datetime="2025-09-08T16:08:23.000Z" class="ps-2 small">2025-09-08 16:08:23</time>
+        <a rel="noopener" target="_blank" href="https://www.theverge.com/news/772630/apple-macos-tahoe-26-update-launch-iphone-event" title="Apple’s macOS Tahoe 26 update releases September 15th">Apple’s macOS Tahoe 26 update releases September 15th</a>
+        <time datetime="2025-09-09T18:17:29.000Z" class="ps-2 small">2025-09-09 18:17:29</time>
     </li></ul></div></div><div class="accordion-item"><h2 class="accordion-header" id="heading9"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse9" aria-expanded="true" aria-controls="collapse9">Matt Mullenweg</button></h2><div id="collapse9" class="accordion-collapse collapse " aria-labelledby="heading9"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://ma.tt/2025/09/links/" title="Assorted Links">Assorted Links</a>
         <time datetime="Mon, 08 Sep 2025 23:20:52 +0000" class="ps-2 small">Mon, 08 Sep 2025 23:20:52 </time>
     </li><li class="mb-1">
@@ -435,7 +446,7 @@
         <time datetime="Thu, 28 Aug 2025 20:08:56 +0000" class="ps-2 small">Thu, 28 Aug 2025 20:08:56 </time>
     </li></ul></div></div><div class="accordion-item"><h2 class="accordion-header" id="heading10"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse10" aria-expanded="true" aria-controls="collapse10">Michael Stapelbergs Website</button></h2><div id="collapse10" class="accordion-collapse collapse " aria-labelledby="heading10"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://michael.stapelberg.ch/posts/2025-09-07-bye-intel-hi-amd-9950x3d/" title="Bye Intel, hi AMD! I’m done after 2 dead Intels">Bye Intel, hi AMD! I’m done after 2 dead Intels</a>
         <time datetime="2025-09-07T06:33:00.000Z" class="ps-2 small">2025-09-07 06:33:00</time>
     </li><li class="mb-1">
@@ -467,40 +478,46 @@
         <time datetime="2024-12-21T10:06:00.000Z" class="ps-2 small">2024-12-21 10:06:00</time>
     </li></ul></div></div><div class="accordion-item"><h2 class="accordion-header" id="heading11"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse11" aria-expanded="true" aria-controls="collapse11">WIRED</button></h2><div id="collapse11" class="accordion-collapse collapse " aria-labelledby="heading11"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.wired.com/story/geedge-networks-mass-censorship-leak/" title="Massive Leak Shows How a Chinese Company Is Exporting the Great Firewall to the World">Massive Leak Shows How a Chinese Company Is Exporting the Great Firewall to the World</a>
-        <time datetime="Tue, 09 Sep 2025 03:00:00 +0000" class="ps-2 small">Tue, 09 Sep 2025 03:00:00 </time>
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://www.wired.com/story/apple-watch-series-11-se-ultra-3/" title="Apple Watch Series 11, Ultra 3, SE: Specs, Price, Release Date">Apple Watch Series 11, Ultra 3, SE: Specs, Price, Release Date</a>
+        <time datetime="Tue, 09 Sep 2025 19:05:45 +0000" class="ps-2 small">Tue, 09 Sep 2025 19:05:45 </time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.wired.com/story/save-dollar60-on-a-dji-mic-mini-bundle/" title="Save $60 on the DJI Mic Mini Kit—Price Drops to Just $109 Today">Save $60 on the DJI Mic Mini Kit—Price Drops to Just $109 Today</a>
-        <time datetime="Mon, 08 Sep 2025 17:52:41 +0000" class="ps-2 small">Mon, 08 Sep 2025 17:52:41 </time>
+        <a rel="noopener" target="_blank" href="https://www.wired.com/story/just-one-lonely-product-still-uses-apples-lightning-connector-can-you-guess-which-one/" title="Just One Lonely Product Still Uses Apple’s Lightning Connector—Can You Guess Which One?">Just One Lonely Product Still Uses Apple’s Lightning Connector—Can You Guess Which One?</a>
+        <time datetime="Tue, 09 Sep 2025 18:23:59 +0000" class="ps-2 small">Tue, 09 Sep 2025 18:23:59 </time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.wired.com/story/does-your-office-chair-need-lumbar-support/" title="Why Your Office Chair Should Have Lumbar Support">Why Your Office Chair Should Have Lumbar Support</a>
-        <time datetime="Mon, 08 Sep 2025 13:00:00 +0000" class="ps-2 small">Mon, 08 Sep 2025 13:00:00 </time>
+        <a rel="noopener" target="_blank" href="https://www.wired.com/story/vizio-tv-deal/" title="Our Favorite Budget TV Is Only $264 at Walmart">Our Favorite Budget TV Is Only $264 at Walmart</a>
+        <time datetime="Tue, 09 Sep 2025 17:48:46 +0000" class="ps-2 small">Tue, 09 Sep 2025 17:48:46 </time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.wired.com/story/iphone-17-air-silicon-carbon-battery-what-is-it/" title="The iPhone 17 Air Could Use a Silicon-Carbon Battery. What Is It?">The iPhone 17 Air Could Use a Silicon-Carbon Battery. What Is It?</a>
-        <time datetime="Mon, 08 Sep 2025 11:00:00 +0000" class="ps-2 small">Mon, 08 Sep 2025 11:00:00 </time>
+        <a rel="noopener" target="_blank" href="https://www.wired.com/story/right-wing-influencers-are-turning-to-foreign-affairs/" title="Right-Wing Influencers Are Turning to Foreign Affairs">Right-Wing Influencers Are Turning to Foreign Affairs</a>
+        <time datetime="Tue, 09 Sep 2025 16:43:28 +0000" class="ps-2 small">Tue, 09 Sep 2025 16:43:28 </time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.wired.com/story/can-psychedelics-reduce-traumatic-brain-injury-one-nfl-all-pro-thinks-so/" title="Why Former NFL All-Pros Are Turning to Psychedelics">Why Former NFL All-Pros Are Turning to Psychedelics</a>
-        <time datetime="Mon, 08 Sep 2025 11:00:00 +0000" class="ps-2 small">Mon, 08 Sep 2025 11:00:00 </time>
+        <a rel="noopener" target="_blank" href="https://www.wired.com/story/san-francisco-hackathon-man-vs-machine/" title="Inside the Man vs. Machine Hackathon">Inside the Man vs. Machine Hackathon</a>
+        <time datetime="Tue, 09 Sep 2025 16:00:00 +0000" class="ps-2 small">Tue, 09 Sep 2025 16:00:00 </time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.wired.com/story/i-hate-my-ai-friend/" title="I Hate My AI Friend">I Hate My AI Friend</a>
-        <time datetime="Mon, 08 Sep 2025 10:30:00 +0000" class="ps-2 small">Mon, 08 Sep 2025 10:30:00 </time>
+        <a rel="noopener" target="_blank" href="https://www.wired.com/story/is-ai-the-new-frontier-of-female-oppression/" title="Is AI the New Frontier of Women’s Oppression?">Is AI the New Frontier of Women’s Oppression?</a>
+        <time datetime="Tue, 09 Sep 2025 15:56:22 +0000" class="ps-2 small">Tue, 09 Sep 2025 15:56:22 </time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.wired.com/review/bose-qc-ultra-2/" title="Bose QuietComfort Ultra Earbuds (2nd Gen): Excellent Buds">Bose QuietComfort Ultra Earbuds (2nd Gen): Excellent Buds</a>
-        <time datetime="Mon, 08 Sep 2025 10:01:00 +0000" class="ps-2 small">Mon, 08 Sep 2025 10:01:00 </time>
+        <a rel="noopener" target="_blank" href="https://www.wired.com/story/us-taxpayers-will-pay-billions-in-new-fossil-fuel-subsidies-thanks-to-the-big-beautiful-bill/" title="US Taxpayers Will Pay Billions in New Fossil Fuel Subsidies Thanks to the Big Beautiful Bill">US Taxpayers Will Pay Billions in New Fossil Fuel Subsidies Thanks to the Big Beautiful Bill</a>
+        <time datetime="Tue, 09 Sep 2025 15:50:17 +0000" class="ps-2 small">Tue, 09 Sep 2025 15:50:17 </time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.wired.com/story/wired-google-preferred-source/" title="How to Add WIRED as a Preferred Source on Google (2025)">How to Add WIRED as a Preferred Source on Google (2025)</a>
-        <time datetime="Sun, 07 Sep 2025 14:04:00 +0000" class="ps-2 small">Sun, 07 Sep 2025 14:04:00 </time>
+        <a rel="noopener" target="_blank" href="https://www.wired.com/gallery/best-dyson-hair-tools/" title="All the Dyson Hair Tools You’ll Ever Need (2025)">All the Dyson Hair Tools You’ll Ever Need (2025)</a>
+        <time datetime="Tue, 09 Sep 2025 14:00:00 +0000" class="ps-2 small">Tue, 09 Sep 2025 14:00:00 </time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.wired.com/story/the-new-math-of-quantum-cryptography/" title="The New Math of Quantum Cryptography">The New Math of Quantum Cryptography</a>
-        <time datetime="Sun, 07 Sep 2025 11:00:00 +0000" class="ps-2 small">Sun, 07 Sep 2025 11:00:00 </time>
+        <a rel="noopener" target="_blank" href="https://www.wired.com/gallery/best-fans/" title="The 15 Best Fans to Cool You Year Round (2025)">The 15 Best Fans to Cool You Year Round (2025)</a>
+        <time datetime="Tue, 09 Sep 2025 13:00:00 +0000" class="ps-2 small">Tue, 09 Sep 2025 13:00:00 </time>
     </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://www.wired.com/story/psychological-tricks-can-get-ai-to-break-the-rules/" title="Psychological Tricks Can Get AI to Break the Rules">Psychological Tricks Can Get AI to Break the Rules</a>
-        <time datetime="Sun, 07 Sep 2025 10:00:00 +0000" class="ps-2 small">Sun, 07 Sep 2025 10:00:00 </time>
+        <a rel="noopener" target="_blank" href="https://www.wired.com/story/uae-releases-a-tiny-but-powerful-reasoning-model/" title="The United Arab Emirates Releases a Tiny But Powerful AI Model">The United Arab Emirates Releases a Tiny But Powerful AI Model</a>
+        <time datetime="Tue, 09 Sep 2025 12:33:44 +0000" class="ps-2 small">Tue, 09 Sep 2025 12:33:44 </time>
     </li></ul></div></div><div class="accordion-item"><h2 class="accordion-header" id="heading12"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse12" aria-expanded="true" aria-controls="collapse12">
 									Renewable Heating Hub Forums - Recent Topics				            </button></h2><div id="collapse12" class="accordion-collapse collapse " aria-labelledby="heading12"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://renewableheatinghub.co.uk/forums/renewable-heating-air-source-heap-pumps-ashps/cop-is-not-the-only-measure-of-efficiency/" title="COP is not the only measure of efficiency">COP is not the only measure of efficiency</a>
+        <time datetime="Tue, 09 Sep 2025 13:11:17 +0000" class="ps-2 small">Tue, 09 Sep 2025 13:11:17 </time>
+    </li><li class="mb-1">
+        <a rel="noopener" target="_blank" href="https://renewableheatinghub.co.uk/forums/inside-the-home/whos-caved-and-switched-the-heating-on-already/" title="Who’s Caved and Switched the Heating On Already?">Who’s Caved and Switched the Heating On Already?</a>
+        <time datetime="Tue, 09 Sep 2025 12:13:08 +0000" class="ps-2 small">Tue, 09 Sep 2025 12:13:08 </time>
+    </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://renewableheatinghub.co.uk/forums/government-schemes/desnz-doing-a-survey-which-asks-the-right-questions/" title="DESNZ doing a survey which asks the right questions!">DESNZ doing a survey which asks the right questions!</a>
         <time datetime="Sun, 07 Sep 2025 21:15:21 +0000" class="ps-2 small">Sun, 07 Sep 2025 21:15:21 </time>
     </li><li class="mb-1">
@@ -524,44 +541,38 @@
     </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://renewableheatinghub.co.uk/forums/other-renewables/specifying-batteries-pv-solar-etc-using-chatgpt/" title="Specifying batteries, pv solar etc using ChatGPT">Specifying batteries, pv solar etc using ChatGPT</a>
         <time datetime="Tue, 02 Sep 2025 18:53:03 +0000" class="ps-2 small">Tue, 02 Sep 2025 18:53:03 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://renewableheatinghub.co.uk/forums/electricity-providers/intelligent-octopus-flux-iof-review/" title="Intelligent Octopus Flux (IOF) Review">Intelligent Octopus Flux (IOF) Review</a>
-        <time datetime="Mon, 01 Sep 2025 19:34:23 +0000" class="ps-2 small">Mon, 01 Sep 2025 19:34:23 </time>
-    </li><li class="mb-1">
-        <a rel="noopener" target="_blank" href="https://renewableheatinghub.co.uk/forums/renewable-heating-air-source-heap-pumps-ashps/what-is-the-heat-geek-guarantee/" title="What is the Heat Geek Guarantee?">What is the Heat Geek Guarantee?</a>
-        <time datetime="Mon, 01 Sep 2025 14:27:20 +0000" class="ps-2 small">Mon, 01 Sep 2025 14:27:20 </time>
     </li></ul></div></div><div class="accordion-item"><h2 class="accordion-header" id="heading13"><button class="accordion-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapse13" aria-expanded="true" aria-controls="collapse13">Ecological Building Systems Blog</button></h2><div id="collapse13" class="accordion-collapse collapse " aria-labelledby="heading13"
-              data-bs-parent="#accordionDigest"><ul class="mb-4"><li class="mb-1">
+              data-bs-parent="#accordionDigest"><div class="mb-2 d-flex gap-2 px-3 pt-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button><button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button></div><ul class="mb-4"><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://www.ecologicalbuildingsystems.com/post/how-to-insulate-your-loft-with-natural-insulations" title="How to insulate your loft with natural insulations">How to insulate your loft with natural insulations</a>
-        <time datetime="2025-09-09T05:03:50.909Z" class="ps-2 small">2025-09-09 05:03:50.909Z</time>
+        <time datetime="2025-09-09T19:19:10.942Z" class="ps-2 small">2025-09-09 19:19:10.942Z</time>
     </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://www.ecologicalbuildingsystems.com/post/natural-insulation-sustainable-alternative-any-building" title="Natural Insulation - A Sustainable Alternative for Any Building">Natural Insulation - A Sustainable Alternative for Any Building</a>
-        <time datetime="2025-09-09T05:03:50.909Z" class="ps-2 small">2025-09-09 05:03:50.909Z</time>
+        <time datetime="2025-09-09T19:19:10.942Z" class="ps-2 small">2025-09-09 19:19:10.942Z</time>
     </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://www.ecologicalbuildingsystems.com/post/crucial-role-preparation-internal-wall-insulation" title="The Crucial Role of Preparation when Installing Internal Wall Insulation">The Crucial Role of Preparation when Installing Internal Wall Insulation</a>
-        <time datetime="2025-09-09T05:03:50.910Z" class="ps-2 small">2025-09-09 05:03:50.910Z</time>
+        <time datetime="2025-09-09T19:19:10.942Z" class="ps-2 small">2025-09-09 19:19:10.942Z</time>
     </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://www.ecologicalbuildingsystems.com/post/ecococon-and-ecological-building-systems-join-forces-uk" title="EcoCocon and Ecological Building Systems Join Forces">EcoCocon and Ecological Building Systems Join Forces</a>
-        <time datetime="2025-09-09T05:03:50.910Z" class="ps-2 small">2025-09-09 05:03:50.910Z</time>
+        <time datetime="2025-09-09T19:19:10.943Z" class="ps-2 small">2025-09-09 19:19:10.943Z</time>
     </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://www.ecologicalbuildingsystems.com/post/case-study-preserving-traditional-townhouse-kilrush" title="Case Study: Preserving a Traditional Townhouse in Kilrush">Case Study: Preserving a Traditional Townhouse in Kilrush</a>
-        <time datetime="2025-09-09T05:03:50.910Z" class="ps-2 small">2025-09-09 05:03:50.910Z</time>
+        <time datetime="2025-09-09T19:19:10.943Z" class="ps-2 small">2025-09-09 19:19:10.943Z</time>
     </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://www.ecologicalbuildingsystems.com/post/how-optime-downlight-protectors-help-ensure-buildings-airtightness" title="How Optime downlight protectors help ensure a building's airtightness">How Optime downlight protectors help ensure a building's airtightness</a>
-        <time datetime="2025-09-09T05:03:50.910Z" class="ps-2 small">2025-09-09 05:03:50.910Z</time>
+        <time datetime="2025-09-09T19:19:10.943Z" class="ps-2 small">2025-09-09 19:19:10.943Z</time>
     </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://www.ecologicalbuildingsystems.com/post/ask-expert-whats-best-way-fix-insulation-above-pitched-roof" title="Ask the Expert: What’s the Best Way to Fix Insulation Above a Pitched Roof?">Ask the Expert: What’s the Best Way to Fix Insulation Above a Pitched Roof?</a>
-        <time datetime="2025-09-09T05:03:50.910Z" class="ps-2 small">2025-09-09 05:03:50.910Z</time>
+        <time datetime="2025-09-09T19:19:10.943Z" class="ps-2 small">2025-09-09 19:19:10.943Z</time>
     </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://www.ecologicalbuildingsystems.com/post/case-study-julian-benson-tranquility-house-dublin" title="Case Study: Julian Benson Cystic Fibrosis Foundation Project Tranquility House, Dublin">Case Study: Julian Benson Cystic Fibrosis Foundation Project Tranquility House, Dublin</a>
-        <time datetime="2025-09-09T05:03:50.910Z" class="ps-2 small">2025-09-09 05:03:50.910Z</time>
+        <time datetime="2025-09-09T19:19:10.943Z" class="ps-2 small">2025-09-09 19:19:10.943Z</time>
     </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://www.ecologicalbuildingsystems.com/post/pro-clima-leads-way-full-epd-certification-airtightness-products" title="Pro Clima Leads the Way with Full EPD Certification for Airtightness Products">Pro Clima Leads the Way with Full EPD Certification for Airtightness Products</a>
-        <time datetime="2025-09-09T05:03:50.911Z" class="ps-2 small">2025-09-09 05:03:50.911Z</time>
+        <time datetime="2025-09-09T19:19:10.943Z" class="ps-2 small">2025-09-09 19:19:10.943Z</time>
     </li><li class="mb-1">
         <a rel="noopener" target="_blank" href="https://www.ecologicalbuildingsystems.com/post/case-study-matfen-hall-hotel-northumberland" title="Case Study: Matfen Hall Hotel, Northumberland">Case Study: Matfen Hall Hotel, Northumberland</a>
-        <time datetime="2025-09-09T05:03:50.911Z" class="ps-2 small">2025-09-09 05:03:50.911Z</time>
+        <time datetime="2025-09-09T19:19:10.944Z" class="ps-2 small">2025-09-09 19:19:10.944Z</time>
     </li></ul></div></div>
         </div>
   
@@ -571,6 +582,210 @@
     </main>
   
     <script src="./bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      (function() {
+        function safeGet(key) {
+          try {
+            return localStorage.getItem(key);
+          } catch (_) { return null; }
+        }
+
+        function safeSet(key, value) {
+          try {
+            localStorage.setItem(key, value);
+          } catch (_) { /* ignore */ }
+        }
+
+        function loadStore() {
+          const raw = safeGet('visitedLinks');
+          if (!raw) return {};
+          try { return JSON.parse(raw) || {}; } catch { return {}; }
+        }
+
+        function saveStore(store) {
+          safeSet('visitedLinks', JSON.stringify(store));
+        }
+
+        function normalize(href) {
+          try { return new URL(href, window.location.href).toString(); }
+          catch { return href; }
+        }
+
+        function formatUTC(ts) {
+          try {
+            const d = new Date(ts);
+            if (isNaN(d)) return '';
+            const iso = d.toISOString(); // YYYY-MM-DDTHH:mm:ss.sssZ
+            return iso.slice(0,16).replace('T',' ') + ' GMT';
+          } catch { return ''; }
+        }
+
+        function markAsRead(anchor, timestamp) {
+          const li = anchor.closest('li');
+          if (li) li.classList.add('read');
+          if (!anchor.dataset.originalTitle) {
+            anchor.dataset.originalTitle = anchor.getAttribute('title') || '';
+          }
+          const formatted = formatUTC(timestamp);
+          if (formatted) {
+            anchor.setAttribute('title', 'Last visited: ' + formatted);
+          }
+        }
+
+        function unmarkAsRead(anchor) {
+          const li = anchor.closest('li');
+          if (li) li.classList.remove('read');
+          if (anchor.dataset.originalTitle !== undefined) {
+            anchor.setAttribute('title', anchor.dataset.originalTitle);
+          } else {
+            anchor.removeAttribute('title');
+          }
+        }
+
+        function applyReadStates() {
+          const store = loadStore();
+          const container = document.getElementById('accordionDigest');
+          if (!container) return;
+          const anchors = container.querySelectorAll('a[href]');
+          anchors.forEach(a => {
+            const key = normalize(a.href);
+            if (store[key]) {
+              markAsRead(a, store[key]);
+            }
+          });
+        }
+
+        function recordVisit(anchor) {
+          const key = normalize(anchor.href);
+          const now = Date.now();
+          const store = loadStore();
+          store[key] = now;
+          saveStore(store);
+          markAsRead(anchor, now);
+        }
+
+        function setupHandlers() {
+          const container = document.getElementById('accordionDigest');
+          if (!container) return;
+
+          // Handle per-accordion buttons
+          container.addEventListener('click', function(e) {
+            const btn = e.target.closest('[data-action]');
+            if (!btn || !container.contains(btn)) return;
+            const item = btn.closest('.accordion-item');
+            if (!item) return;
+            if (btn.dataset.action === 'mark-all-read') {
+              const anchors = item.querySelectorAll('a[href]');
+              const now = Date.now();
+              const store = loadStore();
+              anchors.forEach(a => {
+                const key = normalize(a.href);
+                store[key] = now;
+                markAsRead(a, now);
+              });
+              saveStore(store);
+            } else if (btn.dataset.action === 'reset-read-state') {
+              const anchors = item.querySelectorAll('a[href]');
+              const store = loadStore();
+              anchors.forEach(a => {
+                const key = normalize(a.href);
+                delete store[key];
+                unmarkAsRead(a);
+              });
+              saveStore(store);
+            }
+          });
+
+          // Sorting toggle
+          const sortToggle = document.getElementById('toggleSortUnread');
+          function getSectionTitle(item){
+            const btn = item.querySelector('.accordion-header .accordion-button');
+            return btn ? btn.textContent.trim() : '';
+          }
+          function getUnreadCount(item, store){
+            const anchors = item.querySelectorAll('a[href]');
+            let unread = 0;
+            anchors.forEach(a => { if (!store[normalize(a.href)]) unread++; });
+            return unread;
+          }
+          function assignOriginalIndices(){
+            const items = Array.from(container.querySelectorAll('.accordion-item'));
+            items.forEach((it, idx) => { if (!it.dataset.originalIndex) it.dataset.originalIndex = String(idx); });
+          }
+          function sortByUnread(){
+            const store = loadStore();
+            const items = Array.from(container.querySelectorAll('.accordion-item'));
+            items.sort((a, b) => {
+              const ca = getUnreadCount(a, store);
+              const cb = getUnreadCount(b, store);
+              if (cb !== ca) return cb - ca; // desc unread
+              return getSectionTitle(a).localeCompare(getSectionTitle(b));
+            });
+            items.forEach(it => container.appendChild(it));
+          }
+          function restoreOriginalOrder(){
+            const items = Array.from(container.querySelectorAll('.accordion-item'));
+            items.sort((a, b) => (parseInt(a.dataset.originalIndex||'0',10) - parseInt(b.dataset.originalIndex||'0',10)));
+            items.forEach(it => container.appendChild(it));
+          }
+          function resortIfEnabled(){
+            if (sortToggle && sortToggle.checked) sortByUnread();
+          }
+          assignOriginalIndices();
+          if (sortToggle) {
+            // Optional: remember preference per-page
+            const prefKey = 'sortByUnread:' + location.pathname;
+            const pref = safeGet(prefKey);
+            if (pref === 'on') sortToggle.checked = true;
+            sortToggle.addEventListener('change', function(){
+              if (sortToggle.checked) {
+                sortByUnread();
+                safeSet(prefKey, 'on');
+              } else {
+                restoreOriginalOrder();
+                safeSet(prefKey, 'off');
+              }
+            });
+          }
+
+          function handleEvent(e) {
+            const a = e.target.closest('a[href]');
+            if (!a || !container.contains(a)) return;
+            // Record on left click or middle click without blocking navigation
+            if (e.type === 'click' && e.button === 0) {
+              recordVisit(a);
+              resortIfEnabled();
+            } else if (e.type === 'auxclick' && e.button === 1) {
+              recordVisit(a);
+              resortIfEnabled();
+            }
+          }
+
+          container.addEventListener('click', handleEvent);
+          container.addEventListener('auxclick', handleEvent);
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function(){
+            applyReadStates();
+            setupHandlers();
+            // If toggle is on (from pref), apply sort
+            const sortToggle = document.getElementById('toggleSortUnread');
+            if (sortToggle && sortToggle.checked) {
+              const container = document.getElementById('accordionDigest');
+              if (container) {
+                // Need functions defined in setupHandlers scope; quickly recompute here
+                const items = Array.from(container.querySelectorAll('.accordion-item'));
+                items.forEach((it, idx) => { if (!it.dataset.originalIndex) it.dataset.originalIndex = String(idx); });
+              }
+            }
+          });
+        } else {
+          applyReadStates();
+          setupHandlers();
+        }
+      })();
+    </script>
   </body>
   
   </html>
