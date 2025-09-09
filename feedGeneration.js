@@ -108,6 +108,12 @@ function feedGeneration(feeds, feed_type, target_url) {
     output += `<div id="collapse${my_index}" class="accordion-collapse collapse " aria-labelledby="heading${my_index}"
               data-bs-parent="#accordionDigest">`;
 
+    // Per-accordion controls: mark/reset read state
+    output += '<div class="mb-2 d-flex gap-2 px-3 pt-3">'
+           + '<button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button>'
+           + '<button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button>'
+           + '</div>';
+
     output += '<ul class="mb-4">';
     output += feed.value.items.slice(0, 10).map(itemTemplate).join('');
     output += '</ul>';
@@ -187,6 +193,12 @@ function twitterFeedGeneration(feeds) {
 
     output += `<div id="collapse${my_index}" class="accordion-collapse collapse " aria-labelledby="heading${my_index}"
             data-bs-parent="#accordionDigest">`;
+
+    // Per-accordion controls: mark/reset read state
+    output += '<div class="mb-2 d-flex gap-2 px-3 pt-3">'
+           + '<button type="button" class="btn btn-sm btn-outline-secondary" data-action="mark-all-read">Mark all as read</button>'
+           + '<button type="button" class="btn btn-sm btn-outline-secondary" data-action="reset-read-state">Reset read state</button>'
+           + '</div>';
 
     output += '<ul class="mb-4">';
     output += tweets.map(item => twitterItemTemplate(item, twitter_name)).join('');
