@@ -43,6 +43,7 @@ module.exports.document = function (input_section, navbar_section) {
       /* Unread links extra bold; read links thin */
       #accordionDigest li > a { font-weight: 800; }
       #accordionDigest li.read > a { font-weight: 300; }
+      .accordion-button.has-unread { font-weight: 800; }
     </style>
   </head>
   
@@ -128,6 +129,20 @@ module.exports.document = function (input_section, navbar_section) {
           } catch { return ''; }
         }
 
+        function updateAccordionHeadline(item) {
+          if (!item) return;
+          const button = item.querySelector('.accordion-button');
+          if (!button) return;
+          const hasUnread = item.querySelector('li:not(.read) > a[href]');
+          button.classList.toggle('has-unread', !!hasUnread);
+        }
+
+        function updateAccordionHeadlines(container) {
+          if (!container) return;
+          const items = container.querySelectorAll('.accordion-item');
+          items.forEach(updateAccordionHeadline);
+        }
+
         function markAsRead(anchor, timestamp) {
           const li = anchor.closest('li');
           if (li) li.classList.add('read');
@@ -138,6 +153,7 @@ module.exports.document = function (input_section, navbar_section) {
           if (formatted) {
             anchor.setAttribute('title', 'Last visited: ' + formatted);
           }
+          updateAccordionHeadline(anchor.closest('.accordion-item'));
         }
 
         function unmarkAsRead(anchor) {
@@ -148,6 +164,7 @@ module.exports.document = function (input_section, navbar_section) {
           } else {
             anchor.removeAttribute('title');
           }
+          updateAccordionHeadline(anchor.closest('.accordion-item'));
         }
 
         function applyReadStates() {
@@ -161,6 +178,7 @@ module.exports.document = function (input_section, navbar_section) {
               markAsRead(a, store[key]);
             }
           });
+          updateAccordionHeadlines(container);
         }
 
         function recordVisit(anchor) {
@@ -226,6 +244,7 @@ module.exports.document = function (input_section, navbar_section) {
               });
               saveStore(store);
               resetPageUI(prefKey, sortToggle, restoreOriginalOrder);
+              updateAccordionHeadline(item);
             } else if (btn.dataset.action === 'reset-read-state') {
               const anchors = item.querySelectorAll('a[href]');
               const store = loadStore();
@@ -236,6 +255,7 @@ module.exports.document = function (input_section, navbar_section) {
               });
               saveStore(store);
               resetPageUI(prefKey, sortToggle, restoreOriginalOrder);
+              updateAccordionHeadline(item);
             }
           });
 
