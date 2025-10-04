@@ -176,6 +176,39 @@ module.exports.document = function (input_section, navbar_section) {
           const container = document.getElementById('accordionDigest');
           if (!container) return;
 
+          function collapseAllAccordions() {
+            const buttons = container.querySelectorAll('.accordion-button');
+            buttons.forEach(btn => {
+              btn.classList.add('collapsed');
+              btn.setAttribute('aria-expanded', 'false');
+            });
+            const panels = container.querySelectorAll('.accordion-collapse');
+            panels.forEach(panel => {
+              const bootstrapCollapse = window.bootstrap && window.bootstrap.Collapse;
+              if (bootstrapCollapse) {
+                bootstrapCollapse.getOrCreateInstance(panel, { toggle: false }).hide();
+              } else {
+                panel.classList.remove('show');
+              }
+            });
+          }
+
+          function checkAndDisableSort(prefKey, sortToggle) {
+            if (!sortToggle) return;
+            if (sortToggle.checked) {
+              sortToggle.checked = false;
+            }
+            if (prefKey) safeSet(prefKey, 'off');
+          }
+
+          function resetPageUI(prefKey, sortToggle, restoreFn) {
+            collapseAllAccordions();
+            if (typeof restoreFn === 'function') {
+              restoreFn();
+            }
+            checkAndDisableSort(prefKey, sortToggle);
+          }
+
           // Handle per-accordion buttons
           container.addEventListener('click', function(e) {
             const btn = e.target.closest('[data-action]');
@@ -192,6 +225,7 @@ module.exports.document = function (input_section, navbar_section) {
                 markAsRead(a, now);
               });
               saveStore(store);
+              resetPageUI(prefKey, sortToggle, restoreOriginalOrder);
             } else if (btn.dataset.action === 'reset-read-state') {
               const anchors = item.querySelectorAll('a[href]');
               const store = loadStore();
@@ -201,11 +235,13 @@ module.exports.document = function (input_section, navbar_section) {
                 unmarkAsRead(a);
               });
               saveStore(store);
+              resetPageUI(prefKey, sortToggle, restoreOriginalOrder);
             }
           });
 
           // Sorting toggle
           const sortToggle = document.getElementById('toggleSortUnread');
+          let prefKey = null;
           function getSectionTitle(item){
             const btn = item.querySelector('.accordion-header .accordion-button');
             return btn ? btn.textContent.trim() : '';
@@ -242,7 +278,7 @@ module.exports.document = function (input_section, navbar_section) {
           assignOriginalIndices();
           if (sortToggle) {
             // Optional: remember preference per-page
-            const prefKey = 'sortByUnread:' + location.pathname;
+            prefKey = 'sortByUnread:' + location.pathname;
             const pref = safeGet(prefKey);
             if (pref === 'on') sortToggle.checked = true;
             sortToggle.addEventListener('change', function(){
