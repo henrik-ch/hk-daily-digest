@@ -34,6 +34,10 @@
             "url": "https://electrek.co/feed/"
         },
         {
+            "title": "Simon Willison",
+            "url": "https://simonwillison.net/atom/everything/"
+        },
+        {
             "title": "Matt Mullenweg",
             "url": "https://ma.tt/feed/"
         },
