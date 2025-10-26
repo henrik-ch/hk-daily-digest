@@ -38,6 +38,10 @@
             "url": "https://simonwillison.net/atom/everything/"
         },
         {
+            "title": "Geoffrey Litt",
+            "url": "https://www.geoffreylitt.com/feed.xml"
+        },
+        {
             "title": "Matt Mullenweg",
             "url": "https://ma.tt/feed/"
         },
