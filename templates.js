@@ -353,4 +353,4 @@ module.exports.document = function (input_section, navbar_section) {
   </body>
   
   </html>`;
-}
+};
